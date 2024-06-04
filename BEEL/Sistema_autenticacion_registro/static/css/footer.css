@@ -14,10 +14,10 @@
  }
  
  .footer{
-     position: relative;
+     position: fixed;
+     bottom: 0;
      width: 100%;
      background: #117e7e;
-     min-height: 100px;
      padding: 20px 50px;
      display: flex;
      justify-content: below;

@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<div class="container">
+<div class="container mb-5 mt-5">
   <div class="card text-start mx-auto" style="width: 30rem;">
       <div class="card-body">
           <h4 class="card-title">Formulario de registro</h4>
@@ -13,37 +13,56 @@
               <link rel="stylesheet" href="{% static 'css/form.css' %}">
 
               {% csrf_token %}
-              <label for="nombres">Nombres:</label>
-              <input type="text" name="nombre_usuario" required>
-          
-              <label for="apellidos">Apellidos:</label>
+              <ol>
+                <label for="nombres">Nombres</label>
+                <input type="text" name="nombre_usuario" required>
+              </ol>
+
+              <ol>
+              <label for="apellidos">Apellidos</label>
               <input type="text" name="nombre" required>
-          
-              <label for="cedula">Cédula:</label>
+              </ol>  
+
+              <ol>
+              <label for="cedula">Cédula</label>
               <input type="number" name="apellidos" required>
-          
-              <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+              </ol>
+
+              <ol>
+              <label for="fecha_nacimiento">Fecha de nacimiento</label>
               <input type="date" name="email" required>
-          
-              <label for="celular">Celular:</label>
+              </ol>
+
+              <ol>
+              <label for="celular">Celular</label>
               <input type="number" name="edad" required>
-          
-              <label for="correo">Correo:</label>
+              </ol>  
+              
+              <ol>
+              <label for="correo">Correo</label>
               <input type="email" name="peso" required>
-          
-              <label for="direccion">Dirección:</label>
+              </ol>  
+
+              <ol>
+              <label for="direccion">Dirección</label>
               <input type="address" name="direccion" required>
-          
-              <label for="descripcionDiscapacidad">Descripción de discapacidad:</label>
-              <input type="text" name="descripcionDiscapacidad" required>
-      
-              <label for="contrasena">Contraseña:</label>
+              </ol>  
+              
+              <ol>
+              <label for="descripcionDiscapacidad">Descripción de discapacidad</label>
+              <textarea name="descripcionDiscapacidad" id="descripcionDiscapacidad" rows="5" cols="30"></textarea>
+              </ol>
+
+              <ol>
+              <label for="contrasena">Contraseña</label>
               <input type="password" id="password" name="password" required>
-              <button id="togglePassword">Ver contraseña</button>
-              
-              <label for="confirmacion_contrasena">Confirmar contraseña:</label>
+              <button id="togglePassword">👁</button>
+              </ol>
+
+              <ol>
+              <label for="confirmacion_contrasena">Confirmar contraseña</label>
               <input type="password" name="confirmacion_contrasena" required>
-              
+              </ol>
       
               <a
                   name=""
@@ -73,10 +92,10 @@
             togglePasswordButton.addEventListener('click', () => {
               if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                togglePasswordButton.textContent = 'Ocultar contraseña';
+                togglePasswordButton.textContent = '👁';
               } else {
                 passwordInput.type = 'password';
-                togglePasswordButton.textContent = 'Ver contraseña';
+                togglePasswordButton.textContent = '👁';
               }
             });
           </script>
