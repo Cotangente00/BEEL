@@ -17,6 +17,8 @@ class postulantes(models.Model):
     descripcionDiscapacidad = models.TextField(verbose_name="Descripción de discapacidad", null=False)
     contrasena = models.CharField(max_length=255, verbose_name="Contraseña", null=False)
     confirmacion_contrasena = models.CharField(max_length=255, verbose_name="Confirmación de contraseña", null=False)
+    nacionalidad = models.CharField(max_length=255, verbose_name="Nacionalidad", null=False)
+
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -39,3 +41,19 @@ class empresas(models.Model):
         if not self.id:
             self.contrasena = make_password(self.contrasena)
         super().save(*args, **kwargs)
+
+
+class tipoDocumentos(models.Model):
+    id = models.AutoField(primary_key=True)
+    abreviatura = models.CharField(max_length=255, verbose_name="Abreviatura", null=False)
+    descripcion = models.CharField(max_length=255, verbose_name="descripcion", null=False)
+
+
+class localidad(models.Model):
+    id = models.AutoField(primary_key=True)
+    localidades = models.CharField(max_length=255, verbose_name="localidades", null=False)
+
+
+class tipoDiscapacidad(models.Model):
+    id = models.AutoField(primary_key=True)
+    tipo = models.CharField(max_length=255, verbose_name="localidades", null=False)
