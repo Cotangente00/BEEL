@@ -10,6 +10,9 @@ def index(request):
 def login(request):
     return render(request, 'paginas/login.html')
 
+def aboutus(request):
+    return render(request, 'paginas/aboutus.html')
+
 def formularioPostulante(request): 
     if request.method == 'POST':
         form = postulanteForm(request.POST)
