@@ -21,7 +21,7 @@ class postulantes(models.Model):
     id_tipo_documentos = models.ForeignKey("tipo_documentos", on_delete=models.CASCADE, null=False)
     id_localidad = models.ForeignKey("localidad", on_delete=models.CASCADE, null=False)
     id_tipo_discapacidad = models.ForeignKey("tipo_discapacidad", on_delete=models.CASCADE, null=False)
-    id_sexo = models.ForeignKey("sexo", on_delete=models.CASCADE, null=False)
+    id_sexo = models.ForeignKey("sexo", on_delete=models.CASCADE, null=False )
 
    
 
