@@ -9,7 +9,7 @@ class postulantes(models.Model):
     id = models.AutoField(primary_key=True)
     nombres = models.CharField(max_length=255, verbose_name="Nombre", null=False)
     apellidos = models.CharField(max_length=255, verbose_name="Apellido", null=False)
-    cedula = models.TextField(verbose_name="Número de Cédula", null=False, unique=True)
+    cedula = models.CharField(max_length=255, verbose_name="Número de Cédula", null=False, unique=True)
     fecha_nacimiento = models.DateField(verbose_name="Fecha de nacimiento", null=False)
     celular = models.CharField(max_length=255, verbose_name="Celular", null=False)
     correo = models.EmailField(verbose_name="Correo electrónico", unique=True, null=False)
@@ -18,10 +18,10 @@ class postulantes(models.Model):
     contrasena = models.CharField(max_length=255, verbose_name="Contraseña", null=False)
     confirmacion_contrasena = models.CharField(max_length=255, verbose_name="Confirmación de contraseña", null=False)
     nacionalidad = models.CharField(max_length=255, verbose_name="Nacionalidad", null=False)
-    id_tipo_documentos = models.ForeignKey("tipo_documentos", on_delete=models.CASCADE, null=False)
-    id_localidad = models.ForeignKey("localidad", on_delete=models.CASCADE, null=False)
-    id_tipo_discapacidad = models.ForeignKey("tipo_discapacidad", on_delete=models.CASCADE, null=False)
-    id_sexo = models.ForeignKey("sexo", on_delete=models.CASCADE, null=False )
+    tipo_documentos = models.ForeignKey("tipo_documentos", on_delete=models.CASCADE, null=False)
+    localidad = models.ForeignKey("localidad", on_delete=models.CASCADE, null=False)
+    tipo_discapacidad = models.ForeignKey("tipo_discapacidad", on_delete=models.CASCADE, null=False)
+    sexo = models.ForeignKey("sexo", on_delete=models.CASCADE, null=False )
 
    
 
@@ -35,13 +35,13 @@ class empresas(models.Model):
     id = models.AutoField(primary_key=True)
     razon_social = models.CharField(max_length=255, verbose_name="Razón social", null=False)
     direccion = models.CharField(max_length=255, verbose_name="Dirección", null=False)
-    correo = models.EmailField(verbose_name="Correo electrónico", unique=True, null=False)
-    nit = models.TextField(verbose_name="Número de NIT", null=False, unique=True)
-    rut = models.TextField(verbose_name="Número de RUT", null=False, unique=True)
+    correo = models.EmailField(max_length=255, verbose_name="Correo electrónico", unique=True, null=False)
+    nit = models.CharField(max_length=255, verbose_name="Número de NIT", null=False, unique=True)
+    rut = models.CharField(max_length=255, verbose_name="Número de RUT", null=False, unique=True)
     telefono = models.CharField(max_length=255, verbose_name="Teléfono", null=False)
     descripcion = models.TextField(verbose_name="Descripción", null=False)
-    contrasena = models.CharField(max_length=255,  verbose_name="Contraseña", null=False, default='some string')
-    confirmacion_contrasena = models.CharField(max_length=255,  verbose_name="Contraseña", null=False, default='some string')
+    contrasena = models.CharField(max_length=255,  verbose_name="Contraseña", null=False)
+    confirmacion_contrasena = models.CharField(max_length=255,  verbose_name="Confirmación de contraseña", null=False)
 
     def save(self, *args, **kwargs):
         if not self.id:
