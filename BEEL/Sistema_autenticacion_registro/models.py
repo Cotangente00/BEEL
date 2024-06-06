@@ -18,13 +18,18 @@ class postulantes(models.Model):
     contrasena = models.CharField(max_length=255, verbose_name="Contraseña", null=False)
     confirmacion_contrasena = models.CharField(max_length=255, verbose_name="Confirmación de contraseña", null=False)
     nacionalidad = models.CharField(max_length=255, verbose_name="Nacionalidad", null=False)
+    id_tipo_documentos = models.ForeignKey("tipo_documentos", on_delete=models.CASCADE, null=False)
+    id_localidad = models.ForeignKey("localidad", on_delete=models.CASCADE, null=False)
+    id_tipo_discapacidad = models.ForeignKey("tipo_discapacidad", on_delete=models.CASCADE, null=False)
+    id_sexo = models.ForeignKey("sexo", on_delete=models.CASCADE, null=False)
+
    
 
     def save(self, *args, **kwargs):
         if not self.id:
             self.contrasena = make_password(self.contrasena)
         super().save(*args, **kwargs)
-    pass
+    
 
 class empresas(models.Model):
     id = models.AutoField(primary_key=True)
@@ -42,29 +47,29 @@ class empresas(models.Model):
         if not self.id:
             self.contrasena = make_password(self.contrasena)
         super().save(*args, **kwargs)
-    pass
+    
 
 class tipo_documentos(models.Model):
     id = models.AutoField(primary_key=True)
     abreviatura = models.CharField(max_length=255, verbose_name="Abreviatura", null=False)
     descripcion = models.CharField(max_length=255, verbose_name="descripcion", null=False)
-    pass
+    
 
 
 class localidad(models.Model):
     id = models.AutoField(primary_key=True)
     localidades = models.CharField(max_length=255, verbose_name="localidades", null=False)
-    pass
+    
 
 
 class tipo_discapacidad(models.Model):
     id = models.AutoField(primary_key=True)
     tipo = models.CharField(max_length=255, verbose_name="tipo", null=False)
-    pass
+    
 
 
 class sexo(models.Model):
     id = models.AutoField(primary_key=True)
     sexo = models.CharField(max_length=255, verbose_name="sexo", null=False)
-    pass
+    
 
