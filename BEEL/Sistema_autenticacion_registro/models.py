@@ -7,8 +7,8 @@ from django.contrib.auth.hashers import make_password
 
 class postulantes(models.Model):
     id = models.AutoField(primary_key=True)
-    nombres = models.CharField(max_length=255, verbose_name="Nombre", null=False)
-    apellidos = models.CharField(max_length=255, verbose_name="Apellido", null=False)
+    nombres = models.CharField(max_length=255, verbose_name="Nombres", null=False)
+    apellidos = models.CharField(max_length=255, verbose_name="Apellidos", null=False)
     cedula = models.CharField(max_length=255, verbose_name="Número de Cédula", null=False, unique=True)
     fecha_nacimiento = models.DateField(verbose_name="Fecha de nacimiento", null=False)
     celular = models.CharField(max_length=255, verbose_name="Celular", null=False)
