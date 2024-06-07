@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<div class="container mb-5 mt-5">
+<div class="container mb-5 mt-5" id="container">
   <div class="card text-start mx-auto" style="width: 30rem;">
       <div class="card-body">
           <h4 class="card-title">Formulario de registro</h4>
@@ -13,61 +13,8 @@
               <link rel="stylesheet" href="{% static 'css/form.css' %}">
 
               {% csrf_token %}
-              <ol>
-                <label for="nombres">Nombres</label>
-                <input type="text" name="nombre_usuario" required>
-              </ol>
-
-              <ol>
-              <label for="apellidos">Apellidos</label>
-              <input type="text" name="nombre" required>
-              </ol>  
-
-              <ol>
-              <label for="cedula">Cédula</label>
-              <input type="number" name="apellidos" required>
-              </ol>
-
-              <ol>
-              <label for="fecha_nacimiento">Fecha de nacimiento</label>
-              <input type="date" name="email" required>
-              </ol>
-
-              <ol>
-              <label for="celular">Celular</label>
-              <input type="number" name="edad" required>
-              </ol>  
-              
-              <ol>
-              <label for="correo">Correo</label>
-              <input type="email" name="peso" required>
-              </ol>  
-
-              <ol>
-              <label for="direccion">Dirección</label>
-              <input type="address" name="direccion" required>
-              </ol>  
-              
-              <ol>
-              <label for="descripcionDiscapacidad">Descripción de discapacidad</label>
-              <textarea name="descripcionDiscapacidad" id="descripcionDiscapacidad" rows="5" cols="30"></textarea>
-              </ol>
-
-              <ol>
-              <label for="contrasena">Contraseña</label>
-              <input type="password" id="password" name="password" required>
-              <button id="togglePassword">👁</button>
-              </ol>
-
-              <ol>
-              <label for="confirmacion_contrasena">Confirmar contraseña</label>
-              <input type="password" name="confirmacion_contrasena" required>
-              </ol>
-
-              <ol>
-                <label for="nacionalidad">Nacionalidad</label>
-                <input type="text" name="nacionalidad" required>
-              </ol>
+              {{ form }}
+            
 
       
               <a

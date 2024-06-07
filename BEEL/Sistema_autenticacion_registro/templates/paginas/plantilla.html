@@ -1,4 +1,4 @@
-
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,6 @@
 
     <header class="header">
 
-        {% load static %}
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         <div class="logo">
             <a href="{% url 'welcome' %}"><img src="{% static 'img/logo_home.jpg' %}" alt="logo de la empresa"></a>
@@ -89,6 +88,9 @@
             </li>
         </ul>
         <p class="text"> 2024 | Todos los derechos reservados</p>
+
+
+        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     </footer>
     <script 
       type="module" 
