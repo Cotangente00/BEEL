@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 .container {
     display: flex; /* Centra el formulario horizontalmente */
     justify-content: center;
@@ -79,5 +80,7 @@ input[type="date"] {
 a:hover {
     background-color: #eee;
 }
+=======
+>>>>>>> e139b28b200e20773f330ae7d6b411c562243472
 =======
 >>>>>>> e139b28b200e20773f330ae7d6b411c562243472
