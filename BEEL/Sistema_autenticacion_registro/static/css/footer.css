@@ -14,10 +14,14 @@
  }
  
  .footer{
-     position: fixed;
      bottom: 0;
      width: 100%;
+<<<<<<< HEAD
      background: #333333;
+=======
+     background: #117e7e;
+     min-height: 100px;
+>>>>>>> e139b28b200e20773f330ae7d6b411c562243472
      padding: 20px 50px;
      display: flex;
      justify-content: below;
