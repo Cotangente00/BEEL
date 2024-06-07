@@ -1,106 +1,60 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    {% load static %}
-    <!-- Bootstrap -->
-    <link href="{% static 'home/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-     <!-- Fonts -->
-    
-     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
-     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-     
-
-    <!-- Styles -->
-    <link href="{% static 'css/welcome.css' %}" rel="stylesheet">
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEEL</title>
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-
 <body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="/"><img src="{% static 'img/logo_home.jpg' %}" width="80px" height="80px"></a>
+        <span>Equidad Laboral</span>
+    </div>
+    
+        <ul>
 
-    <h1 class="site-heading text-center text-white d-none d-lg-block">
-      
-        <span class="site-heading-lower">B.E.E.L</span>
-      </h1>
-
-      <h2 class="site-subheading text-center text-white d-none d-lg-block">
-        <span class="site-heading-lower">Bolsa de empleo para la equidad laboral</span>
-    </h2>
-
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="welcome.html">B.E.E.L</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'welcome' %}">Inicio</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'login' %}">Inicia Sesion</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'index' %}">Registrate</a>
-          </li>
+            <li><a href="{% url 'welcome' %}">Inicio</a></li>
+            <li><a href="/about">Acerca de</a></li>
+            <li><a href="{% url 'login' %}">Inicia Sesion</a></li>
         </ul>
-      </div>
-    </div>
-  </nav>
+    </nav>
+</header>
 
+    <main>
+        <section class="hero">
+            <h1 class="animate__fadeInDown">Bienvenidos a Equidad Laboral</h1>
+            <p class="animate__fadeInUp">Somos una bolsa de empleo donde empresas inclusivas publican sus ofertas laborales y personas con cierta discapacidad puedan encontrar su trabajo ideal.</p>
+            <a href="{% url 'index' %}" class="btn animate__fadeInUp">REGISTRATE</a>
+        </section>
 
-   <!-- Heading -->
-   <section class="page-section clearfix">
-    <div class="container">
-      <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'img/principal.jpg' %}" alt="">
+        <section class="features">
+            <h2 class="animate__fadeIn">Nuestras Características</h2>
+            <div class="feature animate__slideInLeft">
+                <i class="fas fa-wheelchair"></i>
+                <h3>Accesibilidad</h3>
+                <p>Ofrecemos empleos con condiciones accesibles para todos.</p>
+            </div>
+            <div class="feature animate__slideInRight">
+                <i class="fas fa-briefcase"></i>
+                <h3>Variedad de Empleos</h3>
+                <p>Amplia gama de ofertas laborales en diferentes sectores.</p>
+            </div>
+            <div class="feature animate__slideInLeft">
+                <i class="fas fa-heart"></i>
+                <h3>Inclusión</h3>
+                <p>Fomentamos un entorno laboral inclusivo y diverso.</p>
+            </div>
+        </section>
         
-        <div class="intro-text left-0 text-justify bg-faded p-5 rounded">
-          <h2 class="section-heading mb-4" >
-            <span class="section-heading-lower text-center">Sobre nosotros</span>
-          </h2>
-          <p class="mb-1">Creemos en la igualdad de oportunidades y la inclusión de todas las personas en el ámbito laboral. Nuestra misión es conectar a personas con discapacidad con empresas comprometidas con la diversidad, creando un entorno de trabajo inclusivo y accesible.
-          </p>
-         
-        </div>
-      </div>
-    </div>
-  </section>
+    </main>
 
-
-    <!-- Footer -->
-    <footer class="footer text-white text-center py-4">
-      <div class="container">
-        <p class="m-0">
-	        <a href="#" class="link">
-	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-	          </span>
-	        </a>
-	        <a href="#" class="link">
-	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-	          </span>
-	        </a>
-	        <a href="#" class="link">
-	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-	          </span>
-	        </a>
-	    </p>
-        <p class="m-0 mbt1">&copy; 2024 Bolsa de Empleo Para la Equidad Laboral (B.E.E.L.) Todos los derechos reservados.</p>
-      </div>
-	</footer>
-
-    <!-- Bootstrap -->
-    <script src="{% static 'home/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'home/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
+    <footer>
+        <p>&copy; 2024 Bolsa de Empleo para Personas Discapacitadas. Todos los derechos reservados.</p>
+    </footer>
 </body>
-
-
 </html>

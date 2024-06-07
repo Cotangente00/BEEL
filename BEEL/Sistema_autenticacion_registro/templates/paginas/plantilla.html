@@ -22,11 +22,11 @@
 
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         <div class="logo">
-            <img src="../img/ardidas.png" alt="logo de la empresa">
+            <a href="{% url 'welcome' %}"><img src="{% static 'img/logo_home.jpg' %}" alt="logo de la empresa"></a>
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a name="inicio" href="{% url 'index' %}">Inicio</a></li>
+                <li><a name="inicio" href="{% url 'welcome' %}">Inicio</a></li>
                 <li><a href="{% url 'aboutus' %}">Sobre nosotros</a></li>
             </ul>
         </nav>
@@ -44,6 +44,8 @@
 
     <!--footer-->
     <footer class="footer">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
         <ul class="social-icon">
             <li class="icon-elem">
                 <a href="" class="icon">
@@ -86,6 +88,7 @@
             </li>
         </ul>
         <p class="text"> 2024 | Todos los derechos reservados</p>
+
 
         <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     </footer>
