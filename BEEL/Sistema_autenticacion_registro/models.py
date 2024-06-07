@@ -21,9 +21,12 @@ class postulantes(models.Model):
     tipo_documentos = models.ForeignKey("tipo_documentos", on_delete=models.CASCADE, null=False)
     localidad = models.ForeignKey("localidad", on_delete=models.CASCADE, null=False)
     tipo_discapacidad = models.ForeignKey("tipo_discapacidad", on_delete=models.CASCADE, null=False)
-    sexo = models.ForeignKey("sexo", on_delete=models.CASCADE, null=False )
-
-   
+    sexo = models.ForeignKey("sexo", on_delete=models.CASCADE, null=False)
+    estado_civil = models.ForeignKey("estado_civil", on_delete=models.CASCADE, null=False)
+    grupo_sanguineo_rh = models.ForeignKey("grupo_sanguineo_rh", on_delete=models.CASCADE, null=False)
+    idioma = models.CharField(max_length=255, verbose_name="Idioma", null=False)
+    nivel_idioma = models.ForeignKey("nivel_idioma", on_delete=models.CASCADE, null=False)
+    
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -72,4 +75,18 @@ class sexo(models.Model):
     id = models.AutoField(primary_key=True)
     sexo = models.CharField(max_length=255, verbose_name="sexo", null=False)
     
+
+class estado_civil(models.Model):
+    id = models.AutoField(primary_key=True)
+    estado_civil = models.CharField(max_length=255, verbose_name="estado_civil", null=False)
+
+
+class grupo_sanguineo_rh(models.Model):
+    id = models.AutoField(primary_key=True)
+    grupo_sanguineo_rh = models.CharField(max_length=255, verbose_name="grupo_sanguineo_rh", null=False)
+
+
+class nivel_idioma(models.Model):
+    id = models.AutoField(primary_key=True)
+    nivel_idioma = models.CharField(max_length=255, verbose_name="nivel_idioma", null=False)
 
