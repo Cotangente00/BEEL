@@ -3,29 +3,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B.E.E.L</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B.E.E.L</title>
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    <div class="formulario">
-        <h1>Inicio de sesión</h1>
-        <form method="post=">
-            <div class="username">
-                <input type="text" required>
-                <label>nombre de usuario</label>
-            </div>
-            <div class="username">
-                <input type="password" required>
-                <label>contraseña</label>
-            </div>
-            <div class="recordar">¿olvidó su contraseña?</div>
-            <input type="submit" value="iniciar sesion">
-            <div class="registrar">
-                ¿no tienes una cuenta?<a href="#"> Regístrate</a>
-            </div>
-        </form>
+  <div class="formulario">
+    <header class="login-header">
+      <h1>Inicia Sesión</h1>
+    </header>
+    <form method="post">
+      <div class="username">
+        <input type="text" required>
+        <label>Nombre de usuario</label>
+      </div>
+      <div class="username">
+        <input type="password" required>
+        <label>Contraseña</label>
+      </div>
+      <div class="recordar">¿Olvidó su contraseña?</div>
+      <input type="submit" value="Iniciar sesión">
+      <div class="registrar">
+        ¿No tienes una cuenta?
+        <a href="{% url 'index' %}">Regístrate</a>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
