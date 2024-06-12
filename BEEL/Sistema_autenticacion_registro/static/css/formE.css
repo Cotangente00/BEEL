@@ -1,91 +1,66 @@
+/* Estilo general del formulario */
+form {
+    width: 500px; /* Ajustar el ancho según sea necesario */
+    margin: 0 auto; /* Centrar el formulario en la página */
+    padding: 20px;
+    
+    border-radius: 5px;
 
-.form-control {
-    border: 1px solid #ccc;
-    padding: 8px;
-    border-radius: 4px;
   }
-
-.form-label {
+  
+  /* Etiquetas de los campos */
+  label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
-    margin-bottom: 5px;
-}
-.container {
-    display: flex; /* Centra el formulario horizontalmente */
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ocupa toda la altura del viewport */
   }
-
-.card {
-    background-color: #fff; /* Fondo blanco */
-    border: none; /* Quita el borde por defecto */
-    border-radius: 5px; /* Añade bordes redondeados */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añade una sombra sutil */
-}
-
-.card-title {
-    font-weight: bold; /* Resalta el título */
-    margin-bottom: 15px; /* Añade espacio inferior */
-  }
-
-.card-text {
-    color: #888; /* Color del texto grisáceo */
-    margin-bottom: 20px; /* Añade espacio inferior */
-}
-
-label {
-    margin-bottom: 5px;
-    font-weight: bold; /* Resalta las etiquetas */
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-input[type="date"] {
-
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-bottom: 15px;
-}
-
-
-.btn-primary {
-    background-color: #277dff; /* Color de fondo del botón */
-    color: white;
-    padding: 10px 20px;
-    border: none;
+  
+  /* Campos de entrada */
+  input[type="razon_social"],
+  input[type="direccion"],
+  input[type="correo"],
+  input[type="nit"],
+  input[type="rut"],
+  input[type="telefono"],
+  input[type="descripcion"],
+  input[type="contrasena"],
+  input[type="confirmación_contrasena"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px; /* Separa el botón del formulario */
-}
-
-.btn-primary:hover {
-    background-color: #45a049;
-}
-
-.btn-success {
+    box-sizing: border-box; /* Incluir el relleno y el borde en el ancho */
+  }
+  
+  /* Botón de envío */
+  input[type="submit"] {
     background-color: #4CAF50; /* Color de fondo del botón */
-    color: white;
+    color: white; /* Color del texto del botón */
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px; /* Separa el botón del formulario */
-}
-
-.btn-success:hover {
-    background-color: #45a049;
-}
-
-
-#togglePassword {
-    background-color: transparent; /* Fondo transparente */
-    border: none;
-    cursor: pointer;
-    margin-left: 10px; /* Separa el botón del campo de contraseña */
-}
-
-a:hover {
-    background-color: #eee;
-}
+  }
+  
+  /* Estado de foco para los campos de entrada */
+  input[type="razon_social"]:focus,
+  input[type="direccion"]:focus,
+  input[type="correo"]:focus,
+  input[type="nit"]:focus,
+  input[type="rut"]:focus,
+  input[type="telefono"]:focus,
+  input[type="descripcion"]:focus,
+  input[type="contraseña"]:focus,
+  input[type="confirmación_contraseña"]:focus,
+  textarea:focus {
+    outline: none; /* Eliminar el contorno predeterminado */
+    border: 2px solid #4CAF50; /* Cambiar el color del borde al enfocarse */
+  }
+  
+  /* Mensajes de error */
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
