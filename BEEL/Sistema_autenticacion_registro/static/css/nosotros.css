@@ -1,5 +1,5 @@
  .sec{
-    background: #117e7e;
+    background: #ffffff;
     padding: 100px;
     min-height: 100vh;
     display: flex;
@@ -36,5 +36,5 @@ p{
    font-size: 18px;
    font-weight: 300;
    margin-bottom: 20px;
-   letter-spacing: 3px;
+   letter-spacing: 4px;
 }
