@@ -1,5 +1,3 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,13 +18,15 @@
 
     <header class="header">
 
+        {% load static %}
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         <div class="logo">
-            <a href="{% url 'welcome' %}"><img src="{% static 'img/logo_home.jpg' %}" alt="logo de la empresa"></a>
+            <img src="{% static 'img/logo_home.jpg' %}" alt="logo" width="80px" height="80px">
+            <span>Equidad Laboral</span>
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a name="inicio" href="{% url 'welcome' %}">Inicio</a></li>
+                <li><a href="{% url 'welcome' %}">Inicio</a></li>
                 <li><a href="{% url 'aboutus' %}">Sobre nosotros</a></li>
             </ul>
         </nav>
@@ -45,61 +45,9 @@
     <!--footer-->
     <footer class="footer">
         {% load static %}
-        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-        <ul class="social-icon">
-            <li class="icon-elem">
-                <a href="" class="icon">
-                    <ion-icon name="logo-youtube"></ion-icon>
-                </a>
-            </li>
-            <li class="icon-elem">
-                <a href="" class="icon">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-            </li>
-            <li class="icon-elem">
-                <a href="" class="icon">
-                    <ion-icon name="logo-whatsapp"></ion-icon>
-                </a>
-            </li>
-            <li class="icon-elem">
-                <a href="" class="icon">
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </a>
-            </li>
-            <li class="icon-elem">
-                <a href="" class="icon">
-                    <ion-icon name="mail-outline"></ion-icon>
-                </a>
-            </li>
-        </ul>
-        <ul class="menu">
-            <li class="menu-elem">
-                <a href="" class="menu-icon"> Inicio </a>
-            </li>
-            <li class="menu-elem">
-                <a href="" class="menu-icon"> Equipo </a>
-            </li>
-            <li class="menu-elem">
-                <a href="" class="menu-icon"> Contacto </a>
-            </li>
-            <li class="menu-elem">
-                <a href="" class="menu-icon"> Sobre Nosotros </a>
-            </li>
-        </ul>
-        <p class="text"> 2024 | Todos los derechos reservados</p>
-
-
+        <p class="text">&copy; 2024 Bolsa de Empleo para Personas Discapacitadas. Todos los derechos reservados.</p>
         <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     </footer>
-    <script 
-      type="module" 
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script 
-       nomodule 
-       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
 </body>
 
 </html>

@@ -8,12 +8,13 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
+
 }
 
 header {
   background: #38ba9c; /* Tonos verdes */
   color: white;
-  padding: 0rem 0;
+  padding: 1rem 0;
 }
 
 header nav {
@@ -22,7 +23,7 @@ header nav {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.2rem;
 }
 
 header nav ul {
@@ -36,9 +37,9 @@ header nav ul li {
 
 span {
   position: absolute;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  margin-top: 21px;
+  margin-bottom: 1px;
+  font-size: 2.5rem;
   font-weight: bold;
   color: white;
 }
@@ -46,10 +47,11 @@ span {
 header nav ul li a {
   color: white;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .hero {
-  background: #e9f5e9; /* Fondo claro verde */
+  background: #ffffff; /* Fondo claro verde */
   padding: 7rem 10rem;
   text-align: justify;
   overflow: hidden;
@@ -57,12 +59,12 @@ header nav ul li a {
 
 .hero h1 {
   margin-bottom: 1rem;
-  font-size: 3.5rem;
+  font-size: 3.7rem;
 }
 
 .hero p {
   margin-bottom: 1.5rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .btn {
@@ -78,6 +80,7 @@ header nav ul li a {
   padding: 2rem 1rem;
   background: #d4edda; /* Fondo verde claro */
   text-align: center;
+  font-size: 1rem;
 }
 
 .features h2 {
@@ -139,11 +142,12 @@ header nav ul li a {
 }
 
 footer {
-  background: #333;
-  color: white;
+  background: #333333;
+  color: aqua;
   text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
+  padding: 2rem 0;
+  margin-top: 5rem;
+  font-size: 20px;
 }
 
 /* Animaciones */

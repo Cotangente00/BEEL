@@ -13,31 +13,15 @@
      background-color: white;
  }
  
- .footer{
-
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: #117e7e;
-    min-height: 100px;
-    padding: 20px 50px;
-    display: flex;
-    justify-content: below;
-    align-items: column;
-
+.footer{
      bottom: 0;
      width: 100%;
-
      background: #333333;
-
-     background: #117e7e;
      min-height: 100px;
-
-     padding: 20px 50px;
+     padding: 20px 250px;
      display: flex;
      justify-content: below;
      align-items: column;
-
  }
 
 .social-icon{

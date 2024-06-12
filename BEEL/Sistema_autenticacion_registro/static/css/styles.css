@@ -18,8 +18,8 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 85px;
-    padding: 5px 10%;
+    height: 100px;
+    padding: 3rem 4.5rem;
 }
 
 
@@ -29,9 +29,9 @@ body{
 
 
 .header .logo img{
-    height: 70px;
+    height: 80px;
     width: auto;
-    transition: all 0.3s;
+    margin-bottom: 2px;
 }
 
 .header .logo img:hover{
@@ -58,6 +58,7 @@ body{
     font-size: 700;
     color: white;
     text-decoration: none;
+    margin-top: 1px;
 }
 
 .header .nav-links li a:hover{
@@ -80,3 +81,12 @@ body{
     color: #9cd3ad;
     transform: scale(1.1);
 }              
+
+span {
+    position: absolute;
+    margin-top: 21px;
+    margin-bottom: 1px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+  }
