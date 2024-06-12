@@ -1,0 +1,86 @@
+/* Estilo general del formulario */
+form {
+    width: 500px; /* Ajustar el ancho según sea necesario */
+    margin: 0 auto; /* Centrar el formulario en la página */
+    padding: 20px;
+    
+    border-radius: 5px;
+
+  }
+  
+  /* Etiquetas de los campos */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Campos de entrada */
+  input[type="nombres"],
+  input[type="apellidos"],
+  input[type="cedula"],
+  input[type="fecha_nacimiento"],
+  input[type="celular"],
+  input[type="correo"],
+  input[type="direccion"],
+  input[type="descripcion_discapacidad"],
+  input[type="contrasena"],
+  input[type="confirmacion_contrasena"],
+  input[type="nacionalidad"],
+  input[type="tipo_documentos"],
+  input[type="localidad"],
+  input[type="tipo_discapacidad"],
+  input[type="sexo"],
+  input[type="estado_civil"],
+  input[type="grupo_sanguineo_rh"],
+  input[type="idioma"],
+  input[type="nivel_idioma"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Incluir el relleno y el borde en el ancho */
+  }
+  
+  /* Botón de envío */
+  input[type="submit"] {
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Estado de foco para los campos de entrada */
+  input[type="nombres"]:focus,
+  input[type="apellidos"]:focus,
+  input[type="cedula"]:focus,
+  input[type="fecha_nacimiento"]:focus,
+  input[type="celular"]:focus,
+  input[type="correo"]:focus,
+  input[type="direccion"]:focus,
+  input[type="descripcion_discapacidad"]:focus,
+  input[type="contrasena"]:focus,
+  input[type="confirmacion_contrasena"]:focus,
+  input[type="nacionalidad"]:focus,
+  input[type="tipo_documentos"]:focus,
+  input[type="localidad"]:focus,
+  input[type="tipo_discapacidad"]:focus,
+  input[type="sexo"]:focus,
+  input[type="estado_civil"]:focus,
+  input[type="grupo_sanguineo_rh"]:focus,
+  input[type="idioma"]:focus,
+  input[type="nivel_idioma"]:focus,
+  textarea:focus {
+    outline: none; /* Eliminar el contorno predeterminado */
+    border: 2px solid #4CAF50; /* Cambiar el color del borde al enfocarse */
+  }
+  
+  /* Mensajes de error */
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
