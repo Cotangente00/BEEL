@@ -17,7 +17,7 @@ class postulantes(models.Model):
     descripcion_discapacidad = models.TextField(verbose_name="Descripción de discapacidad", null=False)
     contrasena = models.CharField(max_length=255, verbose_name="Contraseña", null=False)
     confirmacion_contrasena = models.CharField(max_length=255, verbose_name="Confirmación de contraseña", null=False)
-    nacionalidad =  models.ForeignKey("nacionalidad", on_delete=models.CASCADE, null=False, default='1')
+    nacionalidad =  models.ForeignKey("nacionalidad", on_delete=models.CASCADE, null=False)
     tipo_documentos = models.ForeignKey("tipo_documentos", on_delete=models.CASCADE, null=False)
     localidad = models.ForeignKey("localidad", on_delete=models.CASCADE, null=False)
     tipo_discapacidad = models.ForeignKey("tipo_discapacidad", on_delete=models.CASCADE, null=False)
@@ -32,6 +32,8 @@ class postulantes(models.Model):
         if not self.id:
             self.contrasena = make_password(self.contrasena)
         super().save(*args, **kwargs)
+    
+
     
 
 class empresas(models.Model):
@@ -56,6 +58,9 @@ class tipo_documentos(models.Model):
     id = models.AutoField(primary_key=True)
     abreviatura = models.CharField(max_length=255, verbose_name="Abreviatura", null=False)
     descripcion = models.CharField(max_length=255, verbose_name="descripcion", null=False)
+    def __str__(self):
+        return f'{self.abreviatura} - {self.descripcion}'
+        
     
     
 
@@ -63,36 +68,51 @@ class tipo_documentos(models.Model):
 class localidad(models.Model):
     id = models.AutoField(primary_key=True)
     localidades = models.CharField(max_length=255, verbose_name="localidades", null=False)
+    def __str__(self):
+        return str(self.localidades)
+    
     
 
 
 class tipo_discapacidad(models.Model):
     id = models.AutoField(primary_key=True)
     tipo = models.CharField(max_length=255, verbose_name="tipo", null=False)
+    def __str__(self):
+        return str(self.tipo)
+
     
 
 
 class sexo(models.Model):
     id = models.AutoField(primary_key=True)
     sexo = models.CharField(max_length=255, verbose_name="sexo", null=False)
+    def __str__(self):
+        return str(self.sexo)
     
 
 class estado_civil(models.Model):
     id = models.AutoField(primary_key=True)
     estado_civil = models.CharField(max_length=255, verbose_name="estado_civil", null=False)
+    def __str__(self):
+        return str(self.estado_civil)
 
 
 class grupo_sanguineo_rh(models.Model):
     id = models.AutoField(primary_key=True)
     grupo_sanguineo_rh = models.CharField(max_length=255, verbose_name="grupo_sanguineo_rh", null=False)
+    def __str__(self):
+        return str(self.grupo_sanguineo_rh)
 
 
 class nivel_idioma(models.Model):
     id = models.AutoField(primary_key=True)
     nivel_idioma = models.CharField(max_length=255, verbose_name="nivel_idioma", null=False)
-
+    def __str__(self):
+        return str(self.nivel_idioma)
 
 
 class nacionalidad(models.Model):
     id= models.AutoField(primary_key=True)
-    nacionalidad = models.CharField(max_length=255, verbose_name="nacionalidad", null=False)
+    nacionalidades = models.CharField(max_length=255, verbose_name="nacionalidad", null=False)
+    def __str__(self):
+        return str(self.nacionalidades)

@@ -8,143 +8,15 @@
           <h4 class="card-title">Formulario de registro POSTULANTE</h4>
           <p class="card-text">Ingresa tus datos:</p>
 
-          <form enctype="multipart/form-data" method="post">
+          <form method="post">
             <link rel="stylesheet" href="{% static 'css/formP.css' %}">
 
               {% csrf_token %}
-              <label for="nombres">Nombres</label>
-              <input type="text" name="nombres" required>
-
-              <label for="apellidos">Apellidos</label>
-              <input type="text" name="apellidos" required>
-
-              <label for="cedula">Número de cédula</label>
-              <input type="number" name="cedula" required>
-
-              <label for="fecha_nacimiento">Fecha de nacimiento</label>
-              <input type="date" name="fecha_nacimineto" required>
-
-              <label for="celular">Celular</label>
-              <input type="number" name="celular" required>
-
-              <label for="correo">Correo electronico</label>
-              <input type="email" name="correo" required>
-
-              <label for="direccion">Direccion</label>
-              <input type="text" name="direccion" required>
-
-              <label for="descripcion_discapacidad">Descripcion discapacidad</label>
-              <textarea rows="3" cols="40" name="descripcion_discapacidad" placeholder="Escriba una descripción detallada" required></textarea>
-
-              <label for="contrasena">Contraseña</label>
-              <input type="password" name="contrasena" required>
-
-              <label for="confirmacion_contrasena">Confirmar contraseña</label>
-              <input type="password" name="confirmacion_contrasena" required>
-
-              <label for="nacionalidad">Nacionalidad</label>
-              <select id="opciones_nacionalidad" name="lista">
-                <option value="CO">Colombiano</option>
-                <option value="EX">Extranjero</option>
-              </select>
-
-              <label for="tipo_documentos">Tipo documentos</label>
-              <select id="opciones_documentos" name="lista">
-                <option value="CC">Cedula de ciudadania</option>
-                <option value="CE">Cedula de extranjeria</option>
-                <option value="RC">Registro civil</option>
-                <option value="PS">Pasaporte</option>
-                <option value="PEP">Permiso Especial de Permanencia</option>
-                <option value="PPT">Permiso por Proteccion Temporal</option>
-              </select>
-              
-              <label for="localidad">Localidad</label>
-              <select id="opciones_localidad" name="lista">
-                <option value="AN">Antonio Nariño</option>
-                <option value="BU">Barrios Unidos</option>
-                <option value="BS">Bosa</option>
-                <option value="CH">Chapinero</option>
-                <option value="CB">Ciudad Bolivar</option>
-                <option value="ENG">Engativá</option>
-                <option value="FT">Fontibon</option>
-                <option value="KE">Kennedy</option>
-                <option value="LC">La candelaria</option>
-                <option value="LM">Los Mártires</option>
-                <option value="PA">Puente Aranda</option>
-                <option value="RUU">Rafael Uribe Uribe</option>
-                <option value="SC">San Cristóbal</option>
-                <option value="SF">Santa Fe</option>
-                <option value="SB">Suba</option>
-                <option value="SP">SumaPaz</option>
-                <option value="TEU">Teusaquillo</option>
-                <option value="TJ">Tunjuelito</option>
-                <option value="USQ">Usaquén</option>
-                <option value="US">Usme</option>
-              </select>
-
-              <label for="tipo_discapacidad">Tipo discapacidad</label>
-              <select id="opciones_discapacidad" name="lista">
-                <option value="FIS">Fisica</option>
-                <option value="MEN">Mental</option>
-                <option value="SEN">Sensorial</option>
-              </select>
-
-              <label for="sexo">Sexo</label>
-              <select id="opciones_documentos" name="lista">
-                <option value="F">Femenino</option>
-                <option value="M">Masculino</option>
-              </select>
-
-              <label for="estado_civil">Estado civil</label>
-              <select id="opciones_estado_civil" name="lista">
-                <option value="SO">Solter@</option>
-                <option value="CA">Casad@</option>
-                <option value="DI">Divorciad@</option>
-                <option value="VI">Viud@</option>
-              </select>
-
-              <label for="grupo_sanguineo_rh">Grupo sanguineo</label>
-              <select id="opciones_grupo_sanguineo_rh" name="lista">
-                <option value="A+">A+</option>
-                <option value="B+">B+</option>
-                <option value="AB+">AB+</option>
-                <option value="O+">O+</option>
-                <option value="A-">A-</option>
-                <option value="B-">B-</option>
-                <option value="AB-">AB-</option>
-                <option value="O-">O-</option>
-              </select>
-
-              <label for="idioma">Idioma</label>
-              <input type="text" name="idioma" required>
-
-              <label for="nivel_idioma">Nivel idioma</label>
-              <select id="opciones_nivel_idioma" name="lista">
-                <option value="A0">Principiante: A0</option>
-                <option value="A1-A2">Básico: A1-A2</option>
-                <option value="A2-B1">Pre-Intermedio: B1</option>
-                <option value="B1">Intermedio: B1</option>
-                <option value="B2-C1">Intermedio-Alto: B2-C1</option>
-                <option value="C1">Avanzado: C2</option>
-              </select>
-              
+              {{ form }}
+              <button type="submit" class="btn btn-success bg-gradient btn-lg mt-3">Registrarse</button>
+              <button type="reset" class="btn btn-secondary bg-gradient btn-lg mt-3">Limpiar</button>
+      
           </form>
-          <a
-              name=""
-              id=""
-              class="btn btn-primary bg-gradient btn-lg"
-              href="{% url 'index' %}"
-              role="button"
-              >Enviar</a"
-            ></a>
-            <a
-              name=""
-              id=""
-              class="btn btn-success bg-gradient btn-lg"
-              href="{% url 'index' %}"
-              role="button"
-              >Regresar</a"
-            ></a>
       </div>
   </div>
 
@@ -163,8 +35,6 @@
               }
             });
           </script>
-
-    </form>
 
 </div>
 {% endblock %}
