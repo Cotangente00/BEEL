@@ -1,5 +1,5 @@
 from django import forms
-from .models import postulantes, empresas, tipo_documentos, localidad, tipo_discapacidad, sexo
+from .models import postulantes, empresas
 
 
 class postulanteForm(forms.ModelForm): 
