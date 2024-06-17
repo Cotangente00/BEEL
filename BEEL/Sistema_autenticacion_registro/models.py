@@ -17,7 +17,7 @@ class postulantes(models.Model):
     descripcion_discapacidad = models.TextField(verbose_name="Descripción de discapacidad", null=False)
     contrasena = models.CharField(max_length=255, verbose_name="Contraseña", null=False)
     confirmacion_contrasena = models.CharField(max_length=255, verbose_name="Confirmación de contraseña", null=False)
-    nacionalidad = models.CharField(max_length=255, verbose_name="Nacionalidad", null=False)
+    nacionalidad =  models.ForeignKey("nacionalidad", on_delete=models.CASCADE, null=False, default='1')
     tipo_documentos = models.ForeignKey("tipo_documentos", on_delete=models.CASCADE, null=False)
     localidad = models.ForeignKey("localidad", on_delete=models.CASCADE, null=False)
     tipo_discapacidad = models.ForeignKey("tipo_discapacidad", on_delete=models.CASCADE, null=False)
@@ -57,6 +57,7 @@ class tipo_documentos(models.Model):
     abreviatura = models.CharField(max_length=255, verbose_name="Abreviatura", null=False)
     descripcion = models.CharField(max_length=255, verbose_name="descripcion", null=False)
     
+    
 
 
 class localidad(models.Model):
@@ -90,3 +91,8 @@ class nivel_idioma(models.Model):
     id = models.AutoField(primary_key=True)
     nivel_idioma = models.CharField(max_length=255, verbose_name="nivel_idioma", null=False)
 
+
+
+class nacionalidad(models.Model):
+    id= models.AutoField(primary_key=True)
+    nacionalidad = models.CharField(max_length=255, verbose_name="nacionalidad", null=False)
