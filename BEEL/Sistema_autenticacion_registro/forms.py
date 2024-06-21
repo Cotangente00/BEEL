@@ -1,6 +1,6 @@
 from typing import Any
 from django import forms
-from .models import postulantes, empresas
+from .models import postulantes, empresas, postulantes
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 class LoginPostulantesForm(AuthenticationForm):
@@ -32,7 +32,9 @@ class postulanteForm(UserCreationForm):
         return user
     
     
-
+class LoginEmpresaForm(AuthenticationForm):
+    nit = forms.CharField(label='nit', max_length=128, required=True)
+    password = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
 
 class empresaForm(forms.ModelForm):
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)

@@ -54,6 +54,7 @@ class postulantes(AbstractBaseUser):
     def __str__(self):
         return self.nombres + ' ' + self.apellidos
 
+
     
 class empresasManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -89,13 +90,13 @@ class empresas(AbstractBaseUser):
     password = models.CharField(max_length=128, verbose_name='Contraseña')
 
     USERNAME_FIELD = 'nit'
-    REQUIRED_FIELDS = ['razon_social', 'direccion', 'correo', 'nit', 'telefono', 'descripcion', 'actividad_economica', 'password']
+    REQUIRED_FIELDS = ['razon_social', 'direccion', 'correo', 'telefono', 'descripcion', 'actividad_economica', 'password']
 
     objects = empresasManager()
 
     def __str__(self):
         return self.razon_social
-
+    
     
 
 class tipo_documentos(models.Model):
@@ -167,4 +168,13 @@ class actividad_economica(models.Model):
     actividad_economica = models.CharField(max_length=255, verbose_name="actividad_economica", null=False)
     def __str__(self):
         return str(self.actividad_economica)
+
+
+
+class roles(models.Model):
+    id = models.AutoField(primary_key=True)
+    roles = models.CharField(max_length=255, verbose_name="roles", null=False)
+    def __str__(self):
+        return str(self.roles)
+
 
