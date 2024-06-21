@@ -9,30 +9,20 @@
             <h4 class="card-title">Formulario de registro EMPRESA</h4>
             <p class="card-text">Ingresa tus datos:</p>
   
-            <form enctype="multipart/form-data" method="post">
-                <link rel="stylesheet" href="{% static 'css/formE.css' %}">
+            <form method="post">
+              <link rel="stylesheet" href="{% static 'css/formP.css' %}">
   
                 {% csrf_token %}
                 {{ form }}
-              
-  
-        
+                <button type="submit" class="btn btn-success bg-gradient btn-lg mt-3">Registrarse</button>
+                <button type="reset" class="btn btn-secondary bg-gradient btn-lg mt-3">Limpiar</button>
                 <a
-                    name=""
-                    id=""
-                    class="btn btn-primary bg-gradient btn-lg mt-3"
-                    type="submit"
-                    href="{% url 'index' %}"
-                    role="button"
-                    >Enviar</a"
-                ></a>
-                <a
-                    name=""
-                    id=""
-                    class="btn btn-success bg-gradient btn-lg mt-3"
-                    href="{% url 'index' %}"
-                    role="button"
-                    >Regresar</a"
+                  name=""
+                  id=""
+                  class="btn btn-primary bg-gradient btn-lg mt-3"
+                  href="{% url 'index' %}"
+                  role="button"
+                  >Regresar</a"
                 ></a>
             </form>
         </div>
