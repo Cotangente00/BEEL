@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'GMT-5'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -134,12 +134,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'Sistema_autenticacion_registro.postulantes'
 AUTH_USER_MODEL = 'Sistema_autenticacion_registro.empresas'
 
-#Redirecciones del login postulante
-LOGIN_URL = 'postulantelogin'
-LOGIN_REDIRECT_URL = 'homeP'
-LOGOUT_REDIRECT_URL = 'login'
-
-#Redirecciones del login empresa
-LOGIN_URL = 'empresalogin'
-LOGIN_REDIRECT_URL = 'homeE'
-LOGOUT_REDIRECT_URL = 'login'
