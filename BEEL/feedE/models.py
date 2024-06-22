@@ -1,12 +1,12 @@
 from django.db import models
 from Sistema_autenticacion_registro.models import localidad
-from Sistema_autenticacion_registro.models import empresas 
+from Sistema_autenticacion_registro.models import Empresa
 # Create your models here.
 
 class oferta(models.Model):     
     id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=255, verbose_name="Titulo", null=False)
-    empresas = models.ForeignKey(empresas, on_delete=models.CASCADE, null=False)
+    empresas = models.ForeignKey(Empresa, on_delete=models.CASCADE, null=False)
     localidades = models.ForeignKey(localidad, on_delete=models.CASCADE, null=False)
     persona_de_contacto = models.CharField(max_length=255, verbose_name="Persona de Contacto", null=False)
     direccion = models.CharField(max_length=255, verbose_name="Direccion", null=False)

@@ -131,6 +131,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-AUTH_USER_MODEL = 'Sistema_autenticacion_registro.postulantes'
-AUTH_USER_MODEL = 'Sistema_autenticacion_registro.empresas'
 

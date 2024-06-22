@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 class postulantesManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
-            raise ValueError('The email is mandatory')
+            raise ValueError('El e-mail debe ser proporcionado')
 
         user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
@@ -26,13 +26,13 @@ class postulantesManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 
-class postulantes(AbstractBaseUser):
+class Postulante(AbstractBaseUser):
     nombres = models.CharField(max_length=255, verbose_name="Nombres", null=False)
     apellidos = models.CharField(max_length=255, verbose_name="Apellidos", null=False)
     cedula = models.CharField(max_length=255, verbose_name="Número de Cédula", null=False, unique=True)
     fecha_nacimiento = models.DateField(verbose_name="Fecha de nacimiento", null=False)
     celular = models.CharField(max_length=255, verbose_name="Celular", null=False)
-    correo = models.EmailField(verbose_name="Correo electrónico", unique=True, null=False)
+    email = models.EmailField(verbose_name="Correo electrónico", unique=True, null=False)
     direccion = models.CharField(max_length=255, verbose_name="Dirección", null=False)
     descripcion_discapacidad = models.TextField(verbose_name="Descripción de discapacidad", null=False)
     nacionalidad =  models.ForeignKey("nacionalidad", on_delete=models.CASCADE, null=False)
@@ -46,8 +46,8 @@ class postulantes(AbstractBaseUser):
     nivel_idioma = models.ForeignKey("nivel_idioma", on_delete=models.CASCADE, null=False)
     password = models.CharField(max_length=128, verbose_name='Contraseña')
 
-    USERNAME_FIELD = 'cedula'
-    REQUIRED_FIELDS = ['nombres', 'apellidos', 'fecha_nacimiento', 'celular', 'correo', 'direccion', 'descripcion_discapacidad', 'nacionalidad', 'tipo_documentos', 'localidad', 'tipo_discapacidad', 'sexo', 'estado_civil', 'grupo_sanguineo_rh', 'idioma', 'nivel_idioma', 'password']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['nombres', 'apellidos', 'fecha_nacimiento', 'celular', 'email', 'direccion', 'descripcion_discapacidad', 'nacionalidad', 'tipo_documentos', 'localidad', 'tipo_discapacidad', 'sexo', 'estado_civil', 'grupo_sanguineo_rh', 'idioma', 'nivel_idioma', 'password']
 
     objects = postulantesManager()
 
@@ -59,7 +59,7 @@ class postulantes(AbstractBaseUser):
 class empresasManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
-            raise ValueError('The email is mandatory')
+            raise ValueError('El e-mail debe ser proporcionado')
 
         user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
@@ -79,18 +79,17 @@ class empresasManager(BaseUserManager):
 
 
 
-class empresas(AbstractBaseUser):
+class Empresa(AbstractBaseUser):
     razon_social = models.CharField(max_length=255, verbose_name="Razón social", null=False)
     direccion = models.CharField(max_length=255, verbose_name="Dirección", null=False)
-    correo = models.EmailField(max_length=255, verbose_name="Correo electrónico", unique=True, null=False)
-    nit = models.CharField(max_length=255, verbose_name="Número de NIT", null=False, unique=True)
+    email = models.EmailField(max_length=255, verbose_name="Correo electrónico", unique=True, null=False)
     telefono = models.CharField(max_length=255, verbose_name="Teléfono", null=False)
     descripcion = models.TextField(verbose_name="Descripción", null=False)
     actividad_economica = models.ForeignKey("actividad_economica", on_delete=models.CASCADE, null=False)
     password = models.CharField(max_length=128, verbose_name='Contraseña')
 
-    USERNAME_FIELD = 'nit'
-    REQUIRED_FIELDS = ['razon_social', 'direccion', 'correo', 'telefono', 'descripcion', 'actividad_economica', 'password']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['razon_social', 'direccion', 'email', 'telefono', 'descripcion', 'actividad_economica', 'password']
 
     objects = empresasManager()
 
