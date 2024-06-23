@@ -5,16 +5,16 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 # Create your models here.
 
 class postulantesManager(BaseUserManager):
-    def create_user(self, email, password=None, **extra_fields):
-        if not email:
-            raise ValueError('El e-mail debe ser proporcionado')
+    def create_user(self, cedula, password=None, **extra_fields):
+        if not cedula:
+            raise ValueError('El número de documento de identidad debe ser proporcionado')
 
-        user = self.model(email=self.normalize_email(email), **extra_fields)
+        user = self.model(cedula=self.normalize_cedula(cedula), **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password, **extra_fields):
+    def create_superuser(self, cedula, password, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
 
@@ -23,7 +23,11 @@ class postulantesManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('The superuser must have `is_superuser` = True.')
 
-        return self.create_user(email, password, **extra_fields)
+        return self.create_user(cedula, password, **extra_fields)
+    
+    
+
+
 
 
 class Postulante(AbstractBaseUser):
@@ -53,7 +57,10 @@ class Postulante(AbstractBaseUser):
 
     def __str__(self):
         return self.nombres + ' ' + self.apellidos
-
+    
+    def set_password(self, password):
+        self.password = make_password(password)
+        return self.password
 
     
 class empresasManager(BaseUserManager):
@@ -89,12 +96,16 @@ class Empresa(AbstractBaseUser):
     password = models.CharField(max_length=128, verbose_name='Contraseña')
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['razon_social', 'direccion', 'email', 'telefono', 'descripcion', 'actividad_economica', 'password']
+    REQUIRED_FIELDS = ['razon_social', 'direccion', 'telefono', 'descripcion', 'actividad_economica', 'password']
 
     objects = empresasManager()
 
     def __str__(self):
         return self.razon_social
+    
+    def set_password(self, password):
+        self.password = make_password(password)
+        return self.password
     
     
 

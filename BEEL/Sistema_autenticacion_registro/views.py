@@ -19,7 +19,7 @@ def login(request):
         cedula_nit = request.POST['cedula_nit']
         password = request.POST['password']
 
-        if cedula_nit.isdigit():
+        if cedula_nit.email():
             usuario = authenticate(username=cedula_nit, password=password)
             if usuario is not None and usuario.rol == "postulante":
                 login(request, usuario)
@@ -46,7 +46,7 @@ def formularioPostulante(request):
         form = postulanteForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/loginP.html')
+            return render(request, 'registration/login.html')
             # hacer algo después de guardar los datos del usuario
     else:
         form = postulanteForm()
@@ -65,7 +65,7 @@ def formularioEmpresa(request):
         form = empresaForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registration/loginE.html')
+            return render(request, 'registration/login.html')
             # hacer algo después de guardar los datos del usuario
     else:
         form = empresaForm()
