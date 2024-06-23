@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=thz07505snhbssqylfpr^%8k3&c3(m2ue-)5+_l-q2xk2vrip'
+SECRET_KEY = 'django-insecure-oi0u2#q3=tnjt4q_nh7a9(9^ksn1d5)fy+(huzt@j757$xjx!n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,10 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
-    'Sistema_autenticacion_registro',
-    'feedP',
-    'feedE',
+    'registro_login',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,14 +77,13 @@ WSGI_APPLICATION = 'BEEL.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'beel',
+        'NAME': 'beel_2',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -131,6 +127,19 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-AUTH_USER_MODEL = 'Sistema_autenticacion_registro.postulantes'
-AUTH_USER_MODEL = 'Sistema_autenticacion_registro.empresas'
+# mi_proyecto/settings.py
+AUTH_USER_MODEL = 'registro_login.CustomUser'
 
+
+#backend personalizado de autenticación 
+AUTHENTICATION_BACKENDS = [
+    'registro_login.backends.CustomUserBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
+LOGIN_URL = 'login_view'  # URL para la vista de login
+LOGIN_REDIRECT_URL = [
+    'home_empresa',
+    'home_postulante',
+]  # URL después de un login exitoso
