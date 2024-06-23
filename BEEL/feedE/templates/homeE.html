@@ -1,8 +1,27 @@
-{% extends "paginas/plantilla.html" %}
+{% extends "plantilla.html" %}
 {% load static %}
 {% block content %}
 
-        
-<h1>Bienvenido empresa</h1>
+<link rel="stylesheet" href="{% static 'homeE.css' %}">
+<body>
+
+    <main>
+        <section class="bienvenido">
+            <h1>Bienvenido Empresa</h1>
+            <p class="bienvenido-parrafo">Tu portal donde podras publicar tus ofertas laborales.</p>
+        </section>
+
+        <section class="opciones">
+            <a href="#" class="opciones-mi-empresa">Mi Empresa</a>
+            <a href="#" class="opciones-publicar">Publicar oferta laboral</a>
+            <a href="#" class="opciones-mi-oferta">Ver mi oferta laboral</a>
+            <a href="#" class="opciones-ver-postulantes">Ver postulantes</a>
+
+            <a href="#" class="opciones-cerrar-sesion">Cerrar sesión</a>
+        </section>
+    </main>
+
+</body>
+
 
 {% endblock %}
