@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+
+}
+
+header {
+  background: #38ba9c; /* Tonos verdes */
+  color: white;
+  padding: 1rem 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+span {
+  position: absolute;
+  margin-top: 21px;
+  margin-bottom: 1px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.hero {
+  background: #ffffff; /* Fondo claro verde */
+  padding: 7rem 10rem;
+  text-align: justify;
+  overflow: hidden;
+}
+
+.hero h1 {
+  margin-bottom: 1rem;
+  font-size: 3.7rem;
+}
+
+.hero p {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #28a745; /* Botón verde */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.features {
+  padding: 2rem 1rem;
+  background: #d4edda; /* Fondo verde claro */
+  text-align: center;
+  font-size: 1rem;
+}
+
+.features h2 {
+  margin-bottom: 1.5rem;
+}
+
+.features .feature {
+  margin: 1rem 0;
+}
+
+.features .feature i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #28a745; /* Iconos verdes */
+}
+
+.testimonials {
+  padding: 2rem 1rem;
+  background: #e9f5e9; /* Fondo claro verde */
+  text-align: center;
+}
+
+.testimonials h2 {
+  margin-bottom: 1.5rem;
+}
+
+.testimonials .testimonial {
+  margin: 1rem 0;
+}
+
+.subscription {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.subscription h2 {
+  margin-bottom: 1.5rem;
+}
+
+.subscription form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscription input[type="email"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.subscription button {
+  padding: 0.5rem 1rem;
+  background: #28a745; /* Botón verde */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer {
+  background: #333333;
+  color: aqua;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 5rem;
+  font-size: 20px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+      transform: translateX(100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+.animate__fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.animate__fadeInDown {
+  animation: fadeIn 1s ease-in-out forwards, slideInDown 1s ease-in-out forwards;
+}
+
+.animate__fadeInUp {
+  animation: fadeIn 1s ease-in-out forwards, slideInUp 1s ease-in-out forwards;
+}
+
+.animate__slideInLeft {
+  animation: slideInLeft 1s ease-in-out forwards;
+}
+
+.animate__slideInRight {
+  animation: slideInRight 1s ease-in-out forwards;
+}
+
+@keyframes slideInDown {
+  from {
+      transform: translateY(-100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+      transform: translateY(100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}

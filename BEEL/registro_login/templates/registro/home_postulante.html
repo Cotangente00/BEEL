@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio - Postulante</title>
+</head>
+<body>
+    <h2>Bienvenido, Postulante</h2>
+    <p>Esta es la página principal para el rol de Postulante.</p>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Cerrar sesión</button>
+    </form>
+</body>
+</html>
