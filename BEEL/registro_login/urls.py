@@ -11,4 +11,6 @@ urlpatterns = [
     path('home_empresa/', home_empresa, name='home_empresa'),
     path('home_postulante/', home_postulante, name='home_postulante'),
     path('logout/', auth_views.LogoutView.as_view(next_page='iniciar_sesion'), name='logout'),
+    path('formularioOferta/', views.formularioOferta, name='formularioOferta'),
+    path('ofertas/', views.lista_ofertas, name='lista_ofertas'),
 ]

@@ -20,7 +20,7 @@
         </section>
     
         <section class="opciones">
-            <a href="#" class="opciones-ver-ofertas-laborales">Ver ofertas laborales</a>
+            <a href="{% url 'lista_ofertas' %}" class="opciones-ver-ofertas-laborales">Ver ofertas laborales</a>
             <a href="#" class="opciones-ver-mis-postulaciones">Mis postulaciones</a>
             <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
