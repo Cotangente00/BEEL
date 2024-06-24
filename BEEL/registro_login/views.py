@@ -44,11 +44,11 @@ def login_view(request):
 
 @role_required('empresa')
 def home_empresa(request):
-    return render(request, 'registro/home_empresa.html')
+    return render(request, 'registro/home_empresa.html', {'username': request.user.username})
 
 @role_required('postulante')
 def home_postulante(request):
-    return render(request, 'registro/home_postulante.html')
+    return render(request, 'registro/home_postulante.html', {'username': request.user.username})
 '''
 usuario de prueba:
 2345654323
