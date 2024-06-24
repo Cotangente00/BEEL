@@ -33,7 +33,7 @@
 
         <section class="opciones">
             <a href="{% url 'formularioOferta' %}" class="opciones-publicar">Publicar oferta laboral</a>
-            <a href="#" class="opciones-mi-oferta">Ver mi oferta laboral</a>
+            <a href="{% url 'mis_ofertas' %}" class="opciones-mi-oferta">Ver ofertas laborales publicadas</a>
             <a href="#" class="opciones-ver-postulantes">Ver postulantes</a>
 
             <form method="post" action="{% url 'logout' %}">
