@@ -1,0 +1,14 @@
+{% extends "plantilla.html" %}
+{% load static %}
+{% block content %}
+
+
+    <h1>Aplicar a {{ oferta.titulo_cargo }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar aplicación</button>
+    </form>
+
+    
+{% endblock %}

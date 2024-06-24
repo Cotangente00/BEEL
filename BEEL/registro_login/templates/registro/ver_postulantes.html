@@ -1,0 +1,20 @@
+{% extends "plantilla.html" %}
+{% load static %}
+{% block content %}
+
+    <h1>Postulantes para {{ oferta.titulo_cargo }}</h1>
+    <ul>
+        {% for aplicacion in aplicaciones %}
+            <li>
+                <p><strong>Nombre:</strong> {{ aplicacion.nombres }} {{ aplicacion.apellidos }}</p>
+                <p><strong>Tipo de Documento:</strong> {{ aplicacion.tipo_documento }}</p>
+                <p><strong>Número de Cédula:</strong> {{ aplicacion.numero_cedula }}</p>
+                <p><strong>Tipo de Discapacidad:</strong> {{ aplicacion.tipo_discapacidad }}</p>
+                <p><strong>Descripción de Discapacidad:</strong> {{ aplicacion.descripcion_discapacidad }}</p>
+                <p><strong>Correo Electrónico:</strong> {{ aplicacion.correo_electronico }}</p>
+                <p><strong>Número de Contacto:</strong> {{ aplicacion.numero_contacto }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

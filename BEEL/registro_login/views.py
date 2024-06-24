@@ -1,17 +1,17 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, get_backends
-from .forms import RegistroForm, LoginForm, OfertaForm
+from .forms import *
 from .decorators import role_required
 from .models import *
 
 
 # Create your views here.
 
-
+#vista inicial de bienvenida
 def welcome(request):
     return render(request, 'welcome.html')
 
-
+#registro de usuarios
 def registro(request):
     if request.method == 'POST':
         form = RegistroForm(request.POST)
@@ -28,6 +28,7 @@ def registro(request):
         form = RegistroForm()
     return render(request, 'registro/registro.html', {'form': form})
 
+#vista de inicio de sesión para postulantes y empresas
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -42,10 +43,12 @@ def login_view(request):
         form = LoginForm()
     return render(request, 'registro/iniciar_sesion.html', {'form': form})
 
+#vista home empresa protegida por login required
 @role_required('empresa')
 def home_empresa(request):
     return render(request, 'registro/home_empresa.html', {'username': request.user.username})
 
+#vista home postulante protegida por login required
 @role_required('postulante')
 def home_postulante(request):
     return render(request, 'registro/home_postulante.html', {'username': request.user.username})
@@ -61,7 +64,7 @@ usuario de prueba:
 malufe2207
 '''
 
-
+#formulario de empresa para publicar oferta laboral
 @role_required('empresa')
 def formularioOferta(request):
     if request.method == 'POST':
@@ -75,7 +78,38 @@ def formularioOferta(request):
         form = OfertaForm()
     return render(request, 'registro/formularioOferta.html', {'form': form})
 
+
+#vista del postulante para visualizar todas las ofertas que publiquen las empresas
 @role_required('postulante')
 def lista_ofertas(request):
     ofertas = Oferta.objects.all()
     return render(request, 'registro/lista_ofertas.html', {'ofertas': ofertas})
+
+#vista del formulario del postulante para poder aplicar a la oferta laboral seleccionada
+@role_required('postulante')
+def aplicar_oferta(request, oferta_id):
+    oferta = get_object_or_404(Oferta, id=oferta_id)
+    if request.method == 'POST':
+        form = AplicacionForm(request.POST)
+        if form.is_valid():
+            aplicacion = form.save(commit=False)
+            aplicacion.oferta = oferta
+            aplicacion.save()
+            return redirect('lista_ofertas')  # Redirigir a la lista de ofertas o a alguna página de confirmación
+    else:
+        form = AplicacionForm()
+    return render(request, 'registro/aplicar_oferta.html', {'form': form, 'oferta': oferta})
+
+#vista de la empresa para poder visualizar todas las ofertas publicadas hasta el momento
+@role_required('empresa')
+def mis_ofertas(request):
+    ofertas = Oferta.objects.filter(empresa=request.user)
+    return render(request, 'registro/mis_ofertas.html', {'ofertas': ofertas})
+
+#vista de la empresa para poder visualizar todos los postulantes aplicados a la oferta laboral seleccionada
+@role_required('empresa')
+def ver_postulantes(request, oferta_id):
+    oferta = get_object_or_404(Oferta, id=oferta_id, empresa=request.user)
+    aplicaciones = oferta.aplicaciones.all()
+    return render(request, 'registro/ver_postulantes.html', {'oferta': oferta, 'aplicaciones': aplicaciones})
+
