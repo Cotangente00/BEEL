@@ -3,7 +3,7 @@
 {% block content %}
 
 <link rel="stylesheet" href="{% static 'css/lista_ofertas.css' %}">
-<h1 class="titulo-ofertas">Ofertas Laborales</h1>
+<h1 class="titulo-ofertas text-center">Ofertas Laborales</h1>
 
 {% for oferta in ofertas %}
 <div class="job-card">
@@ -20,11 +20,10 @@
       <p><strong>Funciones:</strong> {{ oferta.funciones }}</p>
       <p><strong>Fecha de Creación:</strong> {{ oferta.fecha_creacion }}</p>
       <p><strong>Fecha de Expiración:</strong> {{ oferta.fecha_expiracion }}</p>
-      <a href="{% url 'aplicar_oferta' oferta.id %}"><button>Aplicar</button></a>
+      <a href="{% url 'aplicar_oferta' oferta.id %}" class="boton-aplicar"><button>Postularse</button></a>
     </div>
 </div>
 
-   <strong></strong>
 {% endfor %}
 
 {% endblock %}
