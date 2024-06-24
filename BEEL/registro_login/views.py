@@ -108,6 +108,7 @@ def aplicar_oferta(request, oferta_id):
         form = AplicacionForm()
     return render(request, 'registro/aplicar_oferta.html', {'form': form, 'oferta': oferta})
 
+
 #vista de la empresa para poder visualizar todas las ofertas publicadas hasta el momento
 @role_required('empresa')
 def mis_ofertas(request):
@@ -120,6 +121,16 @@ def ver_postulantes(request, oferta_id):
     oferta = get_object_or_404(Oferta, id=oferta_id, empresa=request.user)
     aplicaciones = oferta.aplicaciones.all()
     return render(request, 'registro/ver_postulantes.html', {'oferta': oferta, 'aplicaciones': aplicaciones})
+
+#vista para rechazar o eliminar los postulantes descartados 
+@role_required('empresa')
+def rechazar_postulante(request, aplicacion_id):
+    aplicacion = get_object_or_404(Aplicacion, id=aplicacion_id, oferta__empresa=request.user)
+    oferta_id = aplicacion.oferta.id
+    aplicacion.delete()
+    return redirect('ver_postulantes', oferta_id=oferta_id)
+
+
 
 
 #vistas para que los usuarios puedan actualizar los datos de username, email y contraseña
