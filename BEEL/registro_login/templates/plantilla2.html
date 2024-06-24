@@ -26,7 +26,12 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="{% url 'welcome' %}">Inicio</a></li>
+                <li>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="opciones-cerrar-sesion">Salir</button>
+                    </form>
+                </li>
                 <li><a href="">Sobre nosotros</a></li>
             </ul>
         </nav>

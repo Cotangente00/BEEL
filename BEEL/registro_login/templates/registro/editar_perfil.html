@@ -2,13 +2,12 @@
 {% load static %}
 {% block content %}
 
-
-    <h1>Aplicar a {{ oferta.titulo_cargo }}</h1>
+    <h2>Editar Perfil</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Enviar aplicación</button>
+        <button type="submit">Guardar Cambios</button>
     </form>
-
+    <a href="{% url 'cambiar_password' %}">Cambiar Contraseña</a>
 
 {% endblock %}
