@@ -20,6 +20,7 @@
       <p><strong>Funciones:</strong> {{ oferta.funciones }}</p>
       <p><strong>Fecha de Creación:</strong> {{ oferta.fecha_creacion }}</p>
       <p><strong>Fecha de Expiración:</strong> {{ oferta.fecha_expiracion }}</p>
+      <a href="{% url 'aplicar_oferta' oferta.id %}"><button>Aplicar</button></a>
     </div>
 </div>
 
