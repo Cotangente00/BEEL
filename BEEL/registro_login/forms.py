@@ -67,5 +67,5 @@ class AplicacionForm(forms.ModelForm):
         fields = [
             'nombres', 'apellidos', 'tipo_documento', 'numero_cedula',
             'tipo_discapacidad', 'descripcion_discapacidad', 'correo_electronico',
-            'numero_contacto'
+            'numero_contacto', 'conocimientos',
         ]
