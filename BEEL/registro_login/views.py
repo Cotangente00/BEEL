@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, get_backends
-from .forms import RegistroForm, LoginForm
+from .forms import RegistroForm, LoginForm, OfertaForm
 from .decorators import role_required
-
+from .models import *
 
 
 # Create your views here.
@@ -27,6 +27,7 @@ def registro(request):
     else:
         form = RegistroForm()
     return render(request, 'registro/registro.html', {'form': form})
+
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -59,3 +60,22 @@ usuario de prueba:
 1398473984
 malufe2207
 '''
+
+
+@role_required('empresa')
+def formularioOferta(request):
+    if request.method == 'POST':
+        form = OfertaForm(request.POST)
+        if form.is_valid():
+            oferta = form.save(commit=False)
+            oferta.empresa = request.user
+            oferta.save()
+            return redirect('home_empresa')  # Redirigir a la página de inicio de empresa
+    else:
+        form = OfertaForm()
+    return render(request, 'registro/formularioOferta.html', {'form': form})
+
+@role_required('postulante')
+def lista_ofertas(request):
+    ofertas = Oferta.objects.all()
+    return render(request, 'registro/lista_ofertas.html', {'ofertas': ofertas})

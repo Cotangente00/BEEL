@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
-from .models import CustomUser
+from .models import CustomUser, Oferta
+
 
 class RegistroForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -48,3 +49,24 @@ class LoginForm(forms.Form):
             raise forms.ValidationError("Las credenciales no son correctas.")
         cleaned_data['user'] = user
         return cleaned_data
+    
+class OfertaForm(forms.ModelForm):
+    fecha_expiracion = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    class Meta:
+        model = Oferta
+        fields = [
+            'nombre_empresa', 'titulo_cargo', 'persona_contacto', 'direccion',
+            'telefono', 'correo_electronico', 'perfil_requisitos', 'funciones',
+            'fecha_expiracion'
+        ]
+
+
+class OfertaForm(forms.ModelForm):
+    fecha_expiracion = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    class Meta:
+        model = Oferta
+        fields = [
+            'nombre_empresa', 'titulo_cargo', 'persona_contacto', 'direccion',
+            'telefono', 'correo_electronico', 'perfil_requisitos', 'funciones',
+            'fecha_expiracion'
+        ]
