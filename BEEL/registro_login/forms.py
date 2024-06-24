@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
-from .models import CustomUser, Oferta
+from .models import CustomUser, Oferta, Aplicacion
 
 
 class RegistroForm(UserCreationForm):
@@ -61,3 +61,11 @@ class OfertaForm(forms.ModelForm):
         ]
 
 
+class AplicacionForm(forms.ModelForm):
+    class Meta:
+        model = Aplicacion
+        fields = [
+            'nombres', 'apellidos', 'tipo_documento', 'numero_cedula',
+            'tipo_discapacidad', 'descripcion_discapacidad', 'correo_electronico',
+            'numero_contacto'
+        ]

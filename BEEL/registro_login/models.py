@@ -36,3 +36,35 @@ class Oferta(models.Model):
 
     def __str__(self):
         return self.titulo_cargo
+    
+class TipoDocumento(models.Model):
+    abreviacion = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.abreviacion
+    
+class TipoDiscapacidad(models.Model):
+    tipo = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.tipo
+    
+
+class Aplicacion(models.Model):
+    oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE, related_name='aplicaciones')
+    nombres = models.CharField(max_length=255)
+    apellidos = models.CharField(max_length=255)
+    tipo_documento = models.ForeignKey(TipoDocumento, on_delete=models.CASCADE)
+    numero_cedula = models.CharField(max_length=20)
+    tipo_discapacidad = models.ForeignKey(TipoDiscapacidad, on_delete=models.CASCADE)
+    descripcion_discapacidad = models.TextField()
+    correo_electronico = models.EmailField()
+    numero_contacto = models.CharField(max_length=20)
+    conocimientos = models.TextField()
+
+
+    def __str__(self):
+        return f'{self.nombres} {self.apellidos} - {self.oferta.titulo_cargo}'
+    
+
+
