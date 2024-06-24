@@ -59,3 +59,14 @@ class OfertaForm(forms.ModelForm):
             'telefono', 'correo_electronico', 'perfil_requisitos', 'funciones',
             'fecha_expiracion'
         ]
+
+
+class OfertaForm(forms.ModelForm):
+    fecha_expiracion = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    class Meta:
+        model = Oferta
+        fields = [
+            'nombre_empresa', 'titulo_cargo', 'persona_contacto', 'direccion',
+            'telefono', 'correo_electronico', 'perfil_requisitos', 'funciones',
+            'fecha_expiracion'
+        ]

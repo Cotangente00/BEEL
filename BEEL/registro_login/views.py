@@ -75,6 +75,7 @@ def formularioOferta(request):
         form = OfertaForm()
     return render(request, 'registro/formularioOferta.html', {'form': form})
 
+@role_required('postulante')
 def lista_ofertas(request):
     ofertas = Oferta.objects.all()
     return render(request, 'registro/lista_ofertas.html', {'ofertas': ofertas})
