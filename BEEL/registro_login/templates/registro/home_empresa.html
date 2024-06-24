@@ -1,5 +1,5 @@
 
-{% extends "plantilla.html" %}
+{% extends "plantilla2.html" %}
 {% load static %}
 {% block content %}
 
@@ -34,7 +34,7 @@
         <section class="opciones">
             <a href="{% url 'formularioOferta' %}" class="opciones-publicar">Publicar oferta laboral</a>
             <a href="{% url 'mis_ofertas' %}" class="opciones-mi-oferta">Ver ofertas laborales publicadas</a>
-            <a href="#" class="opciones-ver-postulantes">Ver postulantes</a>
+            <a href="{% url 'editar_perfil' %}" class="opciones-ver-postulantes">Editar Perfil</a>
 
             <form method="post" action="{% url 'logout' %}">
              {% csrf_token %}

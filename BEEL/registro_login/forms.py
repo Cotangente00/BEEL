@@ -1,9 +1,9 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth import authenticate
 from .models import CustomUser, Oferta, Aplicacion
 
-
+#formulario de registro de usuarios 
 class RegistroForm(UserCreationForm):
     email = forms.EmailField(required=True)
     role = forms.ChoiceField(choices=CustomUser.ROLES, required=True)
@@ -28,7 +28,7 @@ class RegistroForm(UserCreationForm):
         return cleaned_data
 
 
-
+#las login para ambos usuarios, empresa y postulante
 class LoginForm(forms.Form):
     role = forms.ChoiceField(choices=[('empresa', 'Empresa'), ('postulante', 'Postulante')], required=True)
     identifier = forms.CharField(max_length=20, required=True, label='NIT o Cédula')
@@ -50,6 +50,7 @@ class LoginForm(forms.Form):
         cleaned_data['user'] = user
         return cleaned_data
     
+#formulario para publicar las ofertas laborales
 class OfertaForm(forms.ModelForm):
     fecha_expiracion = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     class Meta:
@@ -60,7 +61,7 @@ class OfertaForm(forms.ModelForm):
             'fecha_expiracion'
         ]
 
-
+#formulario de aplicación para postulantes
 class AplicacionForm(forms.ModelForm):
     class Meta:
         model = Aplicacion
@@ -69,3 +70,15 @@ class AplicacionForm(forms.ModelForm):
             'tipo_discapacidad', 'descripcion_discapacidad', 'correo_electronico',
             'numero_contacto', 'conocimientos',
         ]
+
+#clases para que los usuarios puedan editar sus datos 
+class EditProfileForm(UserChangeForm):
+    password = None  # ocultar el campo de contraseña
+
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'email')
+
+class CustomPasswordChangeForm(PasswordChangeForm):
+    class Meta:
+        model = CustomUser
