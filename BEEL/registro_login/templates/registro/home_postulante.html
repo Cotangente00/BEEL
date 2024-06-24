@@ -1,14 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Inicio - Postulante</title>
-</head>
-<body>
-    <h2>Bienvenido, Postulante</h2>
+{% extends "plantilla.html" %}
+{% load static %}
+{% block content %}
+
+<!--<h2>Bienvenido, Postulante</h2>
     <p>Esta es la página principal para el rol de Postulante.</p>
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit">Cerrar sesión</button>
-    </form>
+    </form>-->
+
+
+<link rel="stylesheet" href="{% static 'css/homeP.css' %}">
+<body>
+    
+    <main>
+        <section class="bienvenido">
+            <h1>Bienvenido Postulante</h1>
+            <p class="bienvenido-parrafo">Tu portal para encontrar las mejores oportunidades laborales.</p>
+        </section>
+    
+        <section class="opciones">
+            <a href="#" class="opciones-ver-ofertas-laborales">Ver ofertas laborales</a>
+            <a href="#" class="opciones-ver-mis-postulaciones">Mis postulaciones</a>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="opciones-cerrar-sesion">Cerrar sesión</button>
+            </form>
+        </section>
+    </main>
+    
 </body>
-</html>
+
+{% endblock %}

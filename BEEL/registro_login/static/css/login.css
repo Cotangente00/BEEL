@@ -1,0 +1,70 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container with slight shadow */
+.container {
+    border-radius: 10px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+    padding: 60px; 
+}
+
+/* Card with subtle hover effect */
+.card {
+    transition: transform 0.3s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card title with adjusted text */
+.card-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #45a049;
+}
+
+/* Card text with slight adjustment */
+.card-text {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Form layout and button styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #38813c;
+}

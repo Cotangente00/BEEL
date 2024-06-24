@@ -1,0 +1,150 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px;
+    background-color: #f1f1f1;
+}
+
+section {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+}
+
+.bienvenido h1 {
+    font-size: 3.5em;
+    color: #4CAF50;
+
+}
+
+.bienvenido-parrafo {
+    font-family: "Arial", sans-serif; /* Tipo de letra */
+    font-size: 20px; /* Tamaño de la fuente */
+    font-weight: bold; /* Peso de la fuente (negrita) */
+    color: rgb(134, 34, 34); /* Color del texto */
+    text-align: center; /* Alineación del texto (centrado) */
+    margin-bottom: 10px; /* Margen inferior */
+  }
+
+.opciones a {
+    display: flex;
+    justify-content: center;
+    padding: 15px 30px;
+    margin-bottom: 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+} 
+
+.opciones {
+    text-align: center;
+}
+
+.opciones a:hover {
+    background-color: #45a049;
+}
+
+.opciones a.opciones-mi-empresa {
+    background-color: #007bff; /* Color de la animación de hover */
+
+}
+
+.opciones a.opciones-mi-empresa:hover {
+    background-color: #006ee4; /* Color de la animación de hover */
+
+}
+
+.opciones a.opciones-publicar {
+    background-color: #4CAF50; /* Color de la animación de hover */
+
+}
+
+.opciones a.opciones-publicar:hover {
+    background-color: #3e9342; /* Color de la animación de hover */
+}
+
+.opciones a.opciones-mi-oferta {
+    background-color: rgb(241, 62, 62); /* Color de la animación de hover */
+
+}
+
+.opciones a.opciones-mi-oferta:hover {
+    background-color: rgb(184, 47, 47); /* Color de la animación de hover */
+}
+
+.opciones a.opciones-ver-postulantes {
+    background-color: #41947a; /* Color de la animación de hover */
+
+}
+
+.opciones a.opciones-ver-postulantes:hover {
+    background-color: #3b836c; /* Color de la animación de hover */
+}
+
+
+/* Logout Button Styles */
+.opciones form button[type="submit"] {
+    background-color: orangered; /* Red color for logout */
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 15px 30px;
+    margin-bottom: 15px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+  
+.opciones form button:hover[type="submit"] {
+    background-color: rgb(230, 61, 0)/* Color de la animación de hover */
+}
+
+.bienvenido h1 {
+    animation: titulo-aparecer 1.5s ease-in-out forwards;
+}
+
+section {
+    animation: titulo-aparecer 1.5s ease-in-out forwards;
+}
+
+.opciones a {
+    animation: titulo-aparecer 1.5s ease-in-out forwards;
+}
+
+@keyframes titulo-aparecer {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    /* Add your animation styles here */
+  }
+}
