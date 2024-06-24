@@ -1,3 +1,105 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container with slight shadow */
+.container {
+  border-radius: 10px;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Card with subtle hover effect */
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card title with animation */
+.card-title {
+  color: #4CAF50;
+  font-size: 2.5rem;
+  animation: title-bounce 1s ease-in-out forwards;
+}
+
+@keyframes title-bounce {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Form styling */
+form {
+  display:block;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  position: relative;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Input field focus animation */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #4CAF50;
+  animation: input-focus 0.3s ease-in-out forwards;
+}
+
+@keyframes input-focus {
+  from { border-color: #ccc; }
+  to { border-color: #4CAF50; }
+}
+
+/* Buttons with hover effect and gradient background */
+button[type="submit"],
+button[type="reset"],
+.btn {
+  background-image: linear-gradient(to right, #4CAF50, #388e3c);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+button[type="reset"]:hover,
+.btn:hover {
+  background-image: linear-gradient(to right, #388e3c, #2e7d32);
+}
+
+/* Button sizes (adjust if needed) */
+.btn-lg {
+  font-size: 18px;
+  padding: 10px 30px;
+}
+
 form {
   background-color: #fff; /* White form background */
   border-radius: 5px; /* Rounded corners */
@@ -78,3 +180,4 @@ textarea {
   transform: translateY(0); /* Animate back to original position */
   opacity: 1; /* Animate to full opacity */
 }
+

@@ -12,7 +12,6 @@ def welcome(request):
     return render(request, 'welcome.html')
 
 
-
 def registro(request):
     if request.method == 'POST':
         form = RegistroForm(request.POST)

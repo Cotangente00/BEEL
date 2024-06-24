@@ -19,5 +19,3 @@ class CustomUser(AbstractUser):
         elif self.role == 'postulante':
             self.nit = None
         super(CustomUser, self).save(*args, **kwargs)
-
-

@@ -1,14 +1,51 @@
+
+{% extends "plantilla.html" %}
+{% load static %}
+{% block content %}
+
+
+<!--<body>
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Inicio - Empresa</title>
 </head>
 <body>
+
     <h2>Bienvenido, Empresa</h2>
     <p>Esta es la página principal para el rol de Empresa.</p>
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit">Cerrar sesión</button>
     </form>
+
+</body>-->
+
+<link rel="stylesheet" href="{% static 'css/homeE.css' %}">
+<body>
+
+    <main>
+        <section class="bienvenido">
+            <h1>Bienvenido Empresa</h1>
+            <p class="bienvenido-parrafo">Tu portal donde podras publicar tus ofertas laborales.</p>
+        </section>
+
+        <section class="opciones">
+            <a href="#" class="opciones-publicar">Publicar oferta laboral</a>
+            <a href="#" class="opciones-mi-oferta">Ver mi oferta laboral</a>
+            <a href="#" class="opciones-ver-postulantes">Ver postulantes</a>
+
+            <form method="post" action="{% url 'logout' %}">
+             {% csrf_token %}
+             <button type="submit" class="opciones-cerrar-sesion">Cerrar sesión</button>
+            </form>
+           
+        </section>
+    </main>
+
 </body>
-</html>
+
+{% endblock %}
+
+
