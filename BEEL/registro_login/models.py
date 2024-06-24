@@ -60,6 +60,8 @@ class Aplicacion(models.Model):
     descripcion_discapacidad = models.TextField()
     correo_electronico = models.EmailField()
     numero_contacto = models.CharField(max_length=20)
+    conocimientos = models.TextField()
+
 
     def __str__(self):
         return f'{self.nombres} {self.apellidos} - {self.oferta.titulo_cargo}'
