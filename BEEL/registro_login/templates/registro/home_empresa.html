@@ -1,15 +1,25 @@
+
 {% extends "plantilla.html" %}
 {% load static %}
 {% block content %}
 
 
 <!--<body>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio - Empresa</title>
+</head>
+<body>
+
     <h2>Bienvenido, Empresa</h2>
     <p>Esta es la página principal para el rol de Empresa.</p>
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit">Cerrar sesión</button>
     </form>
+
 </body>-->
 
 <link rel="stylesheet" href="{% static 'css/homeE.css' %}">
@@ -37,3 +47,5 @@
 </body>
 
 {% endblock %}
+
+
