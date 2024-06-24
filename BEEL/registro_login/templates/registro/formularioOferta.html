@@ -2,28 +2,29 @@
 {% load static %}
 {% block content %}
 
-    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
 
 
-    <div class="container mb-5 mt-5" id="container">
-        <div class="card text-start mx-auto" style="width: 30rem;">
-            <div class="card-body">
-                <h4 class="card-title">Publicar Oferta Laboral</h4>
-                <p class="card-text">Complete los siguientes campos:</p>
+<div class="container mb-5 mt-5" id="container">
+    <div class="card text-start mx-auto" style="width: 30rem;">
+        <div class="card-body">
 
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-success bg-gradient btn-lg mt-3">Publicar</button>
-                    <button type="reset" class="btn btn-secondary bg-gradient btn-lg mt-3">Limpiar</button>
-                    <a
-                        class="btn btn-primary bg-gradient btn-lg mt-3"
-                        href="{% url 'home_empresa' %}"
-                        >Regresar</a
-                    >
-                </form>
-            </div> 
-        </div>
+            <h4 class="card-title">Publicar Oferta Laboral</h4>
+            <p class="card-text">Complete los siguientes campos:</p>
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success bg-gradient btn-lg mt-3">Publicar</button>
+                <button type="reset" class="btn btn-secondary bg-gradient btn-lg mt-3">Limpiar</button>
+                <a
+                    class="btn btn-primary bg-gradient btn-lg mt-3"
+                    href="{% url 'home_empresa' %}"
+                    >Regresar</a
+                >
+            </form>
+        </div> 
     </div>
+</div>
 
 {% endblock %}

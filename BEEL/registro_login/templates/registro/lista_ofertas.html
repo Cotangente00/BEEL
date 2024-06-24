@@ -6,7 +6,7 @@
 <h1 class="titulo-ofertas">Ofertas Laborales</h1>
 
 {% for oferta in ofertas %}
-  <div class="job-card">
+<div class="job-card">
     <div class="job-card-header">
       <h2><strong>{{ oferta.titulo_cargo }}</strong></h2>
       <p><strong>Empresa:</strong> {{ oferta.nombre_empresa }}</p>
@@ -21,9 +21,9 @@
       <p><strong>Fecha de Creación:</strong> {{ oferta.fecha_creacion }}</p>
       <p><strong>Fecha de Expiración:</strong> {{ oferta.fecha_expiracion }}</p>
     </div>
-  </div>
+</div>
 
-  <strong></strong>
+   <strong></strong>
 {% endfor %}
 
 {% endblock %}

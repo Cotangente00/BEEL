@@ -13,4 +13,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page='iniciar_sesion'), name='logout'),
     path('formularioOferta/', views.formularioOferta, name='formularioOferta'),
     path('ofertas/', views.lista_ofertas, name='lista_ofertas'),
+    path('aplicar/<int:oferta_id>/', aplicar_oferta, name='aplicar_oferta'),
+    path('mis-ofertas/', mis_ofertas, name='mis_ofertas'),
+    path('mis-ofertas/<int:oferta_id>/', ver_postulantes, name='ver_postulantes'),
 ]
