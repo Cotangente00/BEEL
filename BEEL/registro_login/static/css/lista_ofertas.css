@@ -56,11 +56,26 @@
     color: #333;
   }
   
-
-  
   /* Animation for Title */
   .job-card {
     animation: job-card-aparecer 1.5s ease-in-out forwards;
+  }
+
+/* Button Styles */
+.boton-aplicar button {
+    background-color: orangered; /* Example green color */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 57.5rem;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-aplicar button:hover {
+    background-color: rgb(223, 59, 0); /* Example green color on hover */
   }
   
   @keyframes job-card-aparecer {
@@ -78,14 +93,17 @@
     }
 
 /* Animation for Title */
-.titulo-ofertas {
-    padding-top: 20px;
-    padding-left: 20px;
+.titulo-ofertas{
+    font-weight: bold;
+    padding-top: 30px;
+    padding-bottom: 25px;
+    font-size: 2.8rem;
     color: #4CAF50;
     animation: titulo-aparecer 1s ease-in-out; /* Add animation */
-  }
+}
+
   
-  @keyframes titulo-aparecer {
+  @keyframes titulo-aparecer{
     from {
       opacity: 0; /* Start hidden */
       transform: translateY(50px); /* Start above the viewport */

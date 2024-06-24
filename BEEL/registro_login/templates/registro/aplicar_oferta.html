@@ -3,12 +3,26 @@
 {% block content %}
 
 
-    <h1>Aplicar a {{ oferta.titulo_cargo }}</h1>
+    <!--<h1 class="titulo">Aplicar a {{ oferta.titulo_cargo }}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Enviar aplicación</button>
-    </form>
+    </form>-->
 
-    
+  <link rel="stylesheet" href="{% static 'css/aplicar_oferta.css' %}">
+<body>
+  <div class="container mt-5">
+    <h1 class="titulo-aplicar animacion-titulo">Aplicar a {{ oferta.titulo_cargo }}</h1>
+
+    <form method="post" class="formulario-aplicacion">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn-enviar">Enviar aplicación</button>
+    </form>
+  </div>
+
+</body>
+</html>
+
 {% endblock %}
