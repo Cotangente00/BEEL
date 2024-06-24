@@ -1,4 +1,4 @@
-{% extends "plantilla.html" %}
+{% extends "plantilla2.html" %}
 {% load static %}
 {% block content %}
 
@@ -13,6 +13,10 @@
                 <p><strong>Descripción de Discapacidad:</strong> {{ aplicacion.descripcion_discapacidad }}</p>
                 <p><strong>Correo Electrónico:</strong> {{ aplicacion.correo_electronico }}</p>
                 <p><strong>Número de Contacto:</strong> {{ aplicacion.numero_contacto }}</p>
+                <form method="post" action="{% url 'rechazar_postulante' aplicacion.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Rechazar</button>
+                </form>
             </li>
         {% endfor %}
     </ul>-->
