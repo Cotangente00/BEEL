@@ -2,20 +2,26 @@
 {% load static %}
 {% block content %}
 
-    <h1>Ofertas Laborales</h1>
-    {% for oferta in ofertas %}
-        <div class="card">
-            <h2>{{ oferta.titulo_cargo }}</h2>
-            <p><strong>Empresa:</strong> {{ oferta.nombre_empresa }}</p>
-            <p><strong>Contacto:</strong> {{ oferta.persona_contacto }}</p>
-            <p><strong>Dirección:</strong> {{ oferta.direccion }}</p>
-            <p><strong>Teléfono:</strong> {{ oferta.telefono }}</p>
-            <p><strong>Correo Electrónico:</strong> {{ oferta.correo_electronico }}</p>
-            <p><strong>Perfil/Requisitos:</strong> {{ oferta.perfil_requisitos }}</p>
-            <p><strong>Funciones:</strong> {{ oferta.funciones }}</p>
-            <p><strong>Fecha de Creación:</strong> {{ oferta.fecha_creacion }}</p>
-            <p><strong>Fecha de Expiración:</strong> {{ oferta.fecha_expiracion }}</p>
-        </div>
-    {% endfor %}
+<link rel="stylesheet" href="{% static 'css/lista_ofertas.css' %}">
+<h1 class="titulo-ofertas">Ofertas Laborales</h1>
+
+{% for oferta in ofertas %}
+  <div class="job-card">
+    <div class="job-card-header">
+      <h2><strong>{{ oferta.titulo_cargo }}</strong></h2>
+      <p><strong>Empresa:</strong> {{ oferta.nombre_empresa }}</p>
+    </div>
+    <div class="job-card-body">
+      <p><strong>Contacto:</strong> {{ oferta.persona_contacto }}</p>
+      <p><strong>Dirección:</strong> {{ oferta.direccion }}</p>
+      <p><strong>Teléfono:</strong> {{ oferta.telefono }}</p>
+      <p><strong>Correo Electrónico:</strong> {{ oferta.correo_electronico }}</p>
+      <p><strong>Perfil/Requisitos:</strong> {{ oferta.perfil_requisitos }}</p>
+      <p><strong>Funciones:</strong> {{ oferta.funciones }}</p>
+      <p><strong>Fecha de Creación:</strong> {{ oferta.fecha_creacion }}</p>
+      <p><strong>Fecha de Expiración:</strong> {{ oferta.fecha_expiracion }}</p>
+    </div>
+  </div>
+{% endfor %}
 
 {% endblock %}
