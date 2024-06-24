@@ -99,4 +99,8 @@ button[type="reset"]:hover,
     font-size: 18px;
     padding: 10px 30px;
 }
+
+ .card-job{
+    background-color: #2e7d32;
+ }
   
