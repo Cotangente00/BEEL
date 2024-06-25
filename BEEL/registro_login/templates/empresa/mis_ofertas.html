@@ -1,0 +1,26 @@
+{% extends "plantilla2.html" %}
+{% load static %}
+{% block content %}
+
+    <!--<h1>Mis Ofertas</h1>
+    <ul>
+        {% for oferta in ofertas %}
+            <li>
+                <a href="{% url 'ver_postulantes' oferta.id %}">{{ oferta.titulo_cargo }}</a>
+            </li>
+        {% endfor %}
+    </ul>-->
+    
+    <link rel="stylesheet" href="{% static 'css/mis_ofertas.css' %}">
+    <body>
+        <h1 class="titulo-ofertas text-center">Mis Ofertas</h1>
+        <ul class="offer-list">
+            {% for oferta in ofertas %}
+                <li class="offer-card">
+                    <a href="{% url 'ver_postulantes' oferta.id %}">{{ oferta.titulo_cargo }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+{% endblock %}
+

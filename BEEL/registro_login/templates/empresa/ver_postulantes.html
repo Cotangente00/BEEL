@@ -1,0 +1,53 @@
+{% extends "plantilla2.html" %}
+{% load static %}
+{% block content %}
+
+    <!--<h1>Postulantes para {{ oferta.titulo_cargo }}</h1>
+    <ul>
+        {% for aplicacion in aplicaciones %}
+            <li>
+                <p><strong>Nombre:</strong> {{ aplicacion.nombres }} {{ aplicacion.apellidos }}</p>
+                <p><strong>Tipo de Documento:</strong> {{ aplicacion.tipo_documento }}</p>
+                <p><strong>Número de Cédula:</strong> {{ aplicacion.numero_cedula }}</p>
+                <p><strong>Tipo de Discapacidad:</strong> {{ aplicacion.tipo_discapacidad }}</p>
+                <p><strong>Descripción de Discapacidad:</strong> {{ aplicacion.descripcion_discapacidad }}</p>
+                <p><strong>Correo Electrónico:</strong> {{ aplicacion.correo_electronico }}</p>
+                <p><strong>Número de Contacto:</strong> {{ aplicacion.numero_contacto }}</p>
+                <form method="post" action="{% url 'rechazar_postulante' aplicacion.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Rechazar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>-->
+<link rel="stylesheet" href="{% static 'css/ver_postulantes.css' %}">
+    <body>
+        <div class="container mt-5">
+          <h1 class="titulo">Postulantes para {{ oferta.titulo_cargo }}</h1>
+      
+          <ul class="lista-aplicantes">
+            {% for aplicacion in aplicaciones %}
+              <li class="aplicacion animated">
+                <div class="aplicacion-contenido">
+                  <p><strong>Nombre:</strong> {{ aplicacion.nombres }} {{ aplicacion.apellidos }}</p>
+                  <p><strong>Tipo de Documento:</strong> {{ aplicacion.tipo_documento }}</p>
+                  <p><strong>Número de Cédula:</strong> {{ aplicacion.numero_cedula }}</p>
+                  <p><strong>Tipo de Discapacidad:</strong> {{ aplicacion.tipo_discapacidad }}</p>
+                  <p><strong>Descripción de Discapacidad:</strong> {{ aplicacion.descripcion_discapacidad }}</p>
+                  <p><strong>Correo Electrónico:</strong> {{ aplicacion.correo_electronico }}</p>
+                  <p><strong>Número de Contacto:</strong> {{ aplicacion.numero_contacto }}</p>
+                  <p><strong>Conocimientos:</strong> {{ aplicacion.conocimientos }}</p>
+                  <form method="post" action="{% url 'rechazar_postulante' aplicacion.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Rechazar</button>
+                  </form>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      
+        <script src="{% static 'js/aplicantes-oferta.js' %}"></script>
+      </body>
+
+{% endblock %}
