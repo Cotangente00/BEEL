@@ -37,6 +37,10 @@
                   <p><strong>Correo Electrónico:</strong> {{ aplicacion.correo_electronico }}</p>
                   <p><strong>Número de Contacto:</strong> {{ aplicacion.numero_contacto }}</p>
                   <p><strong>Conocimientos:</strong> {{ aplicacion.conocimientos }}</p>
+                  <form method="post" action="{% url 'rechazar_postulante' aplicacion.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Rechazar</button>
+                  </form>
                 </div>
               </li>
             {% endfor %}

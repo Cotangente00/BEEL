@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
 from .views import *
@@ -6,6 +6,7 @@ from .views import *
 
 urlpatterns = [
     path('', views.welcome, name='welcome'),
+    path('aboutus/', views.aboutus, name='aboutus'),
     path('registro/', views.registro, name='registro'),
     path('iniciar_sesion/', views.login_view, name='iniciar_sesion'),
     path('home_empresa/', home_empresa, name='home_empresa'),
