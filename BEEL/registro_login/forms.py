@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth import authenticate
 from .models import CustomUser, Oferta, Aplicacion
+import random
 
 #formulario de registro de usuarios 
 class RegistroForm(UserCreationForm):
@@ -9,6 +10,24 @@ class RegistroForm(UserCreationForm):
     role = forms.ChoiceField(choices=CustomUser.ROLES, required=True)
     nit = forms.CharField(max_length=20, required=False)
     cedula = forms.CharField(max_length=20, required=False)
+    num1 = forms.IntegerField(widget=forms.HiddenInput())
+    num2 = forms.IntegerField(widget=forms.HiddenInput())
+    resultado = forms.IntegerField(label='')
+
+    def __init__(self, *args, **kwargs):
+        super(RegistroForm, self).__init__(*args, **kwargs)
+        self.fields['num1'].initial = random.randint(1, 10)
+        self.fields['num2'].initial = random.randint(1, 10)
+        self.fields['resultado'].label = f'¿Cuánto es {self.fields["num1"].initial} + {self.fields["num2"].initial}?'
+
+    def clean_resultado(self):
+        num1 = self.cleaned_data.get('num1')
+        num2 = self.cleaned_data.get('num2')
+        resultado = self.cleaned_data.get('resultado')
+
+        if resultado != num1 + num2:
+            raise forms.ValidationError('Respuesta incorrecta. Inténtalo de nuevo.')
+        return resultado
 
     class Meta:
         model = CustomUser
