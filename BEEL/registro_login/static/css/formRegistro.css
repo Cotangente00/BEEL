@@ -10,13 +10,27 @@ body{
 .container {
     border-radius: 10px;
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 20px;     
+}
 
-      
+.container{
+    animation: container-aparecer 1s ease-in-out; /* Add animation */
+}
+
+  
+@keyframes container-aparecer{
+    from {
+      opacity: 0; /* Start hidden */
+      transform: translateY(50px); /* Start above the viewport */
+    }
+    to {
+      opacity: 1; /* End visible */
+      transform: translateY(0); /* End in original position */
+    }
 }
   
   /* Card with subtle hover effect */
-.card {
+.card-body {
     transition: transform 0.3s ease-in-out;
 
   }
@@ -27,6 +41,7 @@ body{
     color: #4CAF50;
     font-size: 2.5rem;
     animation: title-bounce 1s ease-in-out forwards;
+    font-weight: bold;
   }
   
 @keyframes title-bounce {
@@ -100,7 +115,7 @@ button[type="reset"]:hover,
     padding: 10px 30px;
 }
 
- .card-job{
+.card-job{
     background-color: #2e7d32;
  }
   
