@@ -42,7 +42,20 @@ div.card-body {
     font-size: 3rem;
     color: #45a049;
     font-weight: bold;
+    animation: title-bounce 1s ease-in-out forwards;
 }
+
+.card-title {
+    color: #4CAF50;
+    font-size: 2.5rem;
+    animation: title-bounce 1s ease-in-out forwards;
+    font-weight: bold;
+  }
+  
+@keyframes title-bounce {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
 
 /* Card text with slight adjustment */
 .card-text {

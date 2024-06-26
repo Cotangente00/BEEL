@@ -23,13 +23,15 @@
 <link rel="stylesheet" href="{% static 'css/ver_postulantes.css' %}">
     <body>
         <div class="container mt-5">
-          <h1 class="titulo">Postulantes para {{ oferta.titulo_cargo }}</h1>
+          <h1 class="titulo-postulantes">Postulados en - {{ oferta.titulo_cargo }}</h1>
       
           <ul class="lista-aplicantes">
             {% for aplicacion in aplicaciones %}
               <li class="aplicacion animated">
                 <div class="aplicacion-contenido">
-                  <p><strong>Nombre:</strong> {{ aplicacion.nombres }} {{ aplicacion.apellidos }}</p>
+                  <div class="aplicacion-contenido-header">
+                    <p><strong>Postulante:</strong> {{ aplicacion.nombres }}</p>
+                  </div>
                   <p><strong>Tipo de Documento:</strong> {{ aplicacion.tipo_documento }}</p>
                   <p><strong>Número de Cédula:</strong> {{ aplicacion.numero_cedula }}</p>
                   <p><strong>Tipo de Discapacidad:</strong> {{ aplicacion.tipo_discapacidad }}</p>
@@ -37,13 +39,15 @@
                   <p><strong>Correo Electrónico:</strong> {{ aplicacion.correo_electronico }}</p>
                   <p><strong>Número de Contacto:</strong> {{ aplicacion.numero_contacto }}</p>
                   <p><strong>Conocimientos:</strong> {{ aplicacion.conocimientos }}</p>
+                  <form method="post" action="{% url 'rechazar_postulante' aplicacion.id %}">
+                    {% csrf_token %}
+                    <a href="" class="boton-rechazar"><button type="submit">Rechazar</button></a>
+                </form>
                 </div>
               </li>
             {% endfor %}
           </ul>
         </div>
-      
-        <script src="{% static 'js/aplicantes-oferta.js' %}"></script>
       </body>
 
 {% endblock %}

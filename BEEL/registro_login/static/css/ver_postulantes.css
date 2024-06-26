@@ -4,22 +4,31 @@ body {
     margin: 0;
   }
   
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
+.container {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.aplicacion-contenido-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+}
   /* Heading Styles */
-  .titulo{
-    font-weight: bold;
-    padding-top: 30px;
-    padding-bottom: 25px;
-    font-size: 1.8rem;
-    color: #215023;
-    animation: titulo-aparecer 1s ease-in-out forwards; /* Add animation */
+
+.titulo-postulantes{
+  font-weight: bold;
+  padding-top: 0px;
+  padding-bottom: 35px;
+  font-size: 1.8rem;
+  color: green;
+}
+
+.titulo-postulantes{
+  animation: titulo-aparecer 1s ease-in-out forwards; /* Add animation */
 }
 
 @keyframes titulo-aparecer{
@@ -76,17 +85,39 @@ body {
   
   /* Applicant Card Animation on Page Load */
   .aplicacion.animated {
-    animation: fadeIn 1s ease-in-out;
+    animation: aplicacion-aparecer 1.5s ease-in-out forwards;
   }
   
-  @keyframes fadeIn {
-    from {
+  @keyframes aplicacion-aparecer {
+    0% {
       opacity: 0;
-      transform: translateY(50px); /* Start with card hidden 50px below the viewport */
+      transform: translateX(-50px);
     }
-    to {
+    50% {
       opacity: 1;
-      transform: translateY(0); /* Animate card to its original position */
+      transform: translateX(0);
+    }
+    100% {
+      /* Add your animation styles here */
     }
   }
+
+.boton-rechazar button{
+    background-color: red; /* Example green color */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 50rem;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-rechazar button:hover {
+    background-color: rgb(212, 0, 0); /* Example green color on hover */
+  }
+
+
+
   

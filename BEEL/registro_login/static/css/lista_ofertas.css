@@ -61,6 +61,20 @@
     animation: job-card-aparecer 1.5s ease-in-out forwards;
   }
 
+  @keyframes job-card-aparecer {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      100% {
+        /* Add your animation styles here */
+      }
+    }
+
 /* Button Styles */
 .boton-aplicar button {
     background-color: orangered; /* Example green color */
@@ -77,20 +91,7 @@
 .boton-aplicar button:hover {
     background-color: rgb(223, 59, 0); /* Example green color on hover */
   }
-  
-  @keyframes job-card-aparecer {
-    0% {
-        opacity: 0;
-        transform: translateX(-50px);
-      }
-      50% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      100% {
-        /* Add your animation styles here */
-      }
-    }
+
 
 /* Animation for Title */
 .titulo-ofertas{
