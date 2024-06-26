@@ -64,7 +64,7 @@ class TipoDiscapacidad(models.Model):
     
 
 class Aplicacion(models.Model):
-    postulante = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    postulante = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default="1")
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE, related_name='aplicaciones')
     nombres = models.CharField(max_length=255)
     apellidos = models.CharField(max_length=255)
