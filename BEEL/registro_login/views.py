@@ -5,6 +5,8 @@ from .decorators import role_required
 from .models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 
@@ -35,7 +37,7 @@ def registro(request):
                 return redirect('home_postulante')
     else:
         form = RegistroForm()
-    return render(request, 'registro/registro.html', {'form': form})
+    return render(request, 'registro.html', {'form': form})
 
 #vista de inicio de sesión para postulantes y empresas
 def login_view(request):
@@ -110,6 +112,9 @@ def lista_ofertas(request):
     if request.user.status == 'aplicado':
         messages.info(request, 'No puedes ver más ofertas laborales porque ya has aplicado a una.')
         return redirect('home_postulante')
+    if request.user.status == 'seleccionado':
+        messages.info(request, 'No puedes ver más ofertas laborales porque ya has sido seleccionado.')
+        return redirect('home_postulante')
     
     ofertas = Oferta.objects.all()
     return render(request, 'postulante/lista_ofertas.html', {'ofertas': ofertas})
@@ -118,10 +123,12 @@ def lista_ofertas(request):
 @role_required('postulante')
 def aplicar_oferta(request, oferta_id):
     oferta = get_object_or_404(Oferta, id=oferta_id)
+
     if request.method == 'POST':
         form = AplicacionForm(request.POST)
         if form.is_valid():
             aplicacion = form.save(commit=False)
+            aplicacion.postulante = request.user
             aplicacion.oferta = oferta
             aplicacion.save()
             #cambiar el estado a aplicado
@@ -145,17 +152,23 @@ def mis_ofertas(request):
 @role_required('empresa')
 def ver_postulantes(request, oferta_id):
     oferta = get_object_or_404(Oferta, id=oferta_id, empresa=request.user)
-    aplicaciones = oferta.aplicaciones.all()
+    aplicaciones = oferta.aplicaciones.filter(postulante__status='aplicado')
     return render(request, 'empresa/ver_postulantes.html', {'oferta': oferta, 'aplicaciones': aplicaciones})
 
 
 #vista para rechazar o eliminar los postulantes descartados 
 @role_required('empresa')
 def rechazar_postulante(request, aplicacion_id):
-    aplicacion = get_object_or_404(Aplicacion, id=aplicacion_id, oferta__empresa=request.user)
-    aplicacion.estado = 'rechazado'
-    aplicacion.save()
-    return redirect('ver_postulantes', oferta_id=aplicacion.oferta.id)
+    aplicacion = get_object_or_404(Aplicacion, id=aplicacion_id)
+    if request.user.role == 'empresa' and aplicacion.oferta.empresa == request.user:
+        postulante = aplicacion.postulante
+        aplicacion.delete()
+        postulante.status = 'agente libre'
+        postulante.save()
+        messages.success(request, 'Postulante rechazado exitosamente.')
+    return HttpResponseRedirect(reverse('ver_postulantes', args=[aplicacion.oferta.id]))
+
+
 
 
 
@@ -185,3 +198,24 @@ def cambiar_password(request):
     else:
         form = CustomPasswordChangeForm(user=request.user)
     return render(request, 'paginasComunes/cambiar_password.html', {'form': form})
+
+
+#vista para cambiar el estado de los postulantes a seleccionados y enviar sus datos a la tabla "seleccionados"
+@role_required('empresa')
+def seleccionar_postulantes(request, aplicacion_id):
+    aplicacion = get_object_or_404(Aplicacion, id=aplicacion_id)
+    if request.user.role == 'empresa' and aplicacion.oferta.empresa == request.user:
+        postulante = aplicacion.postulante
+        Seleccionados.objects.create(
+            postulante=postulante,
+            oferta=aplicacion.oferta,
+            nombres=aplicacion.nombres,
+            apellidos=aplicacion.apellidos,
+            tipo_documento=aplicacion.tipo_documento,
+            numero_documento=aplicacion.numero_cedula,
+            contacto=postulante.email,  # assuming email as contact information
+        )
+        postulante.status = 'seleccionado'
+        postulante.save()
+        messages.success(request, 'Postulante seleccionado exitosamente.')
+    return HttpResponseRedirect(reverse('ver_postulantes', args=[aplicacion.oferta.id]))

@@ -19,5 +19,6 @@ urlpatterns = [
     path('mis-ofertas/<int:oferta_id>/', ver_postulantes, name='ver_postulantes'),
     path('editar_perfil/', editar_perfil, name='editar_perfil'),
     path('cambiar_password/', cambiar_password, name='cambiar_password'),
-    path('rechazar-postulante/<int:aplicacion_id>/', rechazar_postulante, name='rechazar_postulante'),
+    path('rechazar_postulante/<int:aplicacion_id>/', rechazar_postulante, name='rechazar_postulante'),
+    path('seleccionar_postulantes/<int:aplicacion_id>/', seleccionar_postulantes, name='seleccionar_postulantes'),
 ]
