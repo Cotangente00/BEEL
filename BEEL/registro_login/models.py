@@ -51,6 +51,11 @@ class TipoDiscapacidad(models.Model):
     
 
 class Aplicacion(models.Model):
+    ESTADO_CHOICES = [
+        ('pendiente', 'Pendiente'),
+        ('rechazado', 'Rechazado'),
+    ]
+
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE, related_name='aplicaciones')
     nombres = models.CharField(max_length=255)
     apellidos = models.CharField(max_length=255)
@@ -61,7 +66,7 @@ class Aplicacion(models.Model):
     correo_electronico = models.EmailField()
     numero_contacto = models.CharField(max_length=20)
     conocimientos = models.TextField()
-
+    estado = models.CharField(max_length=10, choices=ESTADO_CHOICES, default='pendiente')
 
     def __str__(self):
         return f'{self.nombres} {self.apellidos} - {self.oferta.titulo_cargo}'
