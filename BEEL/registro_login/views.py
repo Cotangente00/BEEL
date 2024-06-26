@@ -213,9 +213,15 @@ def seleccionar_postulantes(request, aplicacion_id):
             apellidos=aplicacion.apellidos,
             tipo_documento=aplicacion.tipo_documento,
             numero_documento=aplicacion.numero_cedula,
-            contacto=postulante.email,  # assuming email as contact information
+            contacto=aplicacion.correo_electronico,  # assuming email as contact information
         )
         postulante.status = 'seleccionado'
         postulante.save()
         messages.success(request, 'Postulante seleccionado exitosamente.')
     return HttpResponseRedirect(reverse('ver_postulantes', args=[aplicacion.oferta.id]))
+
+@role_required('empresa')
+def ver_seleccionados(request, oferta_id):
+    oferta = get_object_or_404(Oferta, id=oferta_id, empresa=request.user)
+    seleccionados = Seleccionados.objects.filter(oferta=oferta)
+    return render(request, 'empresa/ver_seleccionados.html', {'oferta': oferta, 'seleccionados': seleccionados})

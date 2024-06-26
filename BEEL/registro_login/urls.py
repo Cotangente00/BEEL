@@ -21,4 +21,5 @@ urlpatterns = [
     path('cambiar_password/', cambiar_password, name='cambiar_password'),
     path('rechazar_postulante/<int:aplicacion_id>/', rechazar_postulante, name='rechazar_postulante'),
     path('seleccionar_postulantes/<int:aplicacion_id>/', seleccionar_postulantes, name='seleccionar_postulantes'),
+    path('ver_seleccionados/<int:oferta_id>/', ver_seleccionados, name='ver_seleccionados'),
 ]
