@@ -10,6 +10,10 @@
                 <p>Tipo de Documento: {{ seleccionado.tipo_documento }}</p>
                 <p>Número de Documento: {{ seleccionado.numero_documento }}</p>
                 <p>Contacto: {{ seleccionado.contacto }}</p>
+                <form method="post" action="{% url 'reject_selected' seleccionado.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Rechazar</button>
+                </form>
             </li>
         {% endfor %}
     </ul>

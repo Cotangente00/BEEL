@@ -22,4 +22,6 @@ urlpatterns = [
     path('rechazar_postulante/<int:aplicacion_id>/', rechazar_postulante, name='rechazar_postulante'),
     path('seleccionar_postulantes/<int:aplicacion_id>/', seleccionar_postulantes, name='seleccionar_postulantes'),
     path('ver_seleccionados/<int:oferta_id>/', ver_seleccionados, name='ver_seleccionados'),
+    path('reject_selected/<int:seleccionado_id>/', reject_selected, name='reject_selected'),
+    path('eliminar_oferta/<int:oferta_id>/', eliminar_oferta, name='eliminar_oferta'),
 ]
