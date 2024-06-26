@@ -107,6 +107,10 @@ def formularioOferta(request):
 #vista del postulante para visualizar todas las ofertas que publiquen las empresas
 @role_required('postulante')
 def lista_ofertas(request):
+    if request.user.status == 'aplicado':
+        messages.info(request, 'No puedes ver más ofertas laborales porque ya has aplicado a una.')
+        return redirect('home_postulante')
+    
     ofertas = Oferta.objects.all()
     return render(request, 'postulante/lista_ofertas.html', {'ofertas': ofertas})
 
@@ -117,13 +121,14 @@ def aplicar_oferta(request, oferta_id):
     if request.method == 'POST':
         form = AplicacionForm(request.POST)
         if form.is_valid():
-            aplicacion_existente = Aplicacion.objects.filter(correo_electronico=form.cleaned_data['correo_electronico'], estado='pendiente').exists()
-            if aplicacion_existente:
-                messages.error(request, 'Ya tienes una aplicación pendiente. Debes esperar a ser rechazado o contratado antes de aplicar a otra oferta.')
-                return redirect('lista_ofertas')
             aplicacion = form.save(commit=False)
             aplicacion.oferta = oferta
             aplicacion.save()
+            #cambiar el estado a aplicado
+            request.user.status = 'aplicado'
+            request.user.save()
+
+            messages.success(request, 'Has aplicado exitosamente a la oferta.')
             return redirect('lista_ofertas')  # Redirigir a la lista de ofertas o a alguna página de confirmación
     else:
         form = AplicacionForm()

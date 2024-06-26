@@ -93,7 +93,7 @@ class AplicacionForm(forms.ModelForm):
 
 #clases para que los usuarios puedan editar sus datos 
 class EditProfileForm(UserChangeForm):
-    password = None  # ocultar el campo de contraseña
+    password = None  # ocultar el contenido de la contraseña
 
     class Meta:
         model = CustomUser
