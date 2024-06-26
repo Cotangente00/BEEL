@@ -9,9 +9,16 @@ class CustomUser(AbstractUser):
         ('postulante', 'Postulante'),
     )
     
+    STATUS_CHOICES = (
+        ('agente libre', 'Agente Libre'),
+        ('aplicado', 'Aplicado'),
+        ('contratado', 'Contratado'),
+    )
+    
     role = models.CharField(max_length=10, choices=ROLES)
     nit = models.CharField(max_length=20, blank=True, null=True)
     cedula = models.CharField(max_length=20, blank=True, null=True)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='agente libre')
 
     def save(self, *args, **kwargs):
         if self.role == 'empresa':
@@ -19,6 +26,11 @@ class CustomUser(AbstractUser):
         elif self.role == 'postulante':
             self.nit = None
         super(CustomUser, self).save(*args, **kwargs)
+    
+    def save2(self, *args, **kwargs):
+        if self.role == 'postulante' and not self.status:
+            self.status = 'agente libre'
+        super().save(*args, **kwargs)
 
 
 class Oferta(models.Model):

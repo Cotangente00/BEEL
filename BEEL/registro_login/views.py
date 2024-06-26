@@ -22,8 +22,11 @@ def registro(request):
     if request.method == 'POST':
         form = RegistroForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            backend = get_backends()[0]  # Asumimos que tu backend personalizado es el primero en la lista
+            user = form.save(commit=False)
+            if user.role == 'postulante':
+                user.status = 'agente libre'
+            user.save()
+            backend = get_backends()[0]
             user.backend = f'{backend.__module__}.{backend.__class__.__name__}'
             login(request, user)
             if user.role == 'empresa':
@@ -32,7 +35,7 @@ def registro(request):
                 return redirect('home_postulante')
     else:
         form = RegistroForm()
-    return render(request, 'registro.html', {'form': form})
+    return render(request, 'registro/registro.html', {'form': form})
 
 #vista de inicio de sesión para postulantes y empresas
 def login_view(request):
@@ -57,7 +60,10 @@ def home_empresa(request):
 #vista home postulante protegida por login required
 @role_required('postulante')
 def home_postulante(request):
-    return render(request, 'postulante/home_postulante.html', {'username': request.user.username})
+    return render(request, 'postulante/home_postulante.html', {
+        'username': request.user.username,
+        'status': request.user.status
+    })
 '''
 usuario de prueba:
 2345654323
