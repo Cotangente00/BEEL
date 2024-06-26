@@ -13,7 +13,7 @@ class CustomUser(AbstractUser):
         ('agente libre', 'Agente Libre'),
         ('aplicado', 'Aplicado'),
         ('contratado', 'Contratado'),
-        ('seleccionado', 'Seleccionado')
+        ('seleccionado', 'Seleccionado'),
     )
     
     role = models.CharField(max_length=10, choices=ROLES)

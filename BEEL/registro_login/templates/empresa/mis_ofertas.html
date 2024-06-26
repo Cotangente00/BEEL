@@ -22,6 +22,10 @@
                     <form method="get" action="{% url 'ver_seleccionados' oferta.id %}">
                         <button type="submit">Ver Seleccionados</button>
                     </form>
+                    <form method="post" action="{% url 'eliminar_oferta' oferta.id %}">
+                        {% csrf_token %}
+                        <button type="submit" onclick="return confirm('¿Está seguro de que desea eliminar esta oferta?')">Eliminar</button>
+                    </form>
                 </li>
                 <li>
                 </li>

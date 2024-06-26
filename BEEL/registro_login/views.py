@@ -115,6 +115,9 @@ def lista_ofertas(request):
     if request.user.status == 'seleccionado':
         messages.info(request, 'No puedes ver más ofertas laborales porque ya has sido seleccionado.')
         return redirect('home_postulante')
+    if request.user.status == 'contratado':
+        messages.info(request, 'No puedes ver más ofertas laborales porque ya has sido contratado.')
+        return redirect('home_postulante')
     
     ofertas = Oferta.objects.all()
     return render(request, 'postulante/lista_ofertas.html', {'ofertas': ofertas})
@@ -168,6 +171,25 @@ def rechazar_postulante(request, aplicacion_id):
         messages.success(request, 'Postulante rechazado exitosamente.')
     return HttpResponseRedirect(reverse('ver_postulantes', args=[aplicacion.oferta.id]))
 
+#vista para elminar postulantes que hayan sido selesccionados
+@role_required('empresa')
+def reject_selected(request, seleccionado_id):
+    seleccionado = get_object_or_404(Seleccionados, id=seleccionado_id)
+    postulante = seleccionado.postulante
+    oferta = seleccionado.oferta
+
+    # Eliminar la aplicación del postulante
+    Aplicacion.objects.filter(postulante=postulante, oferta=oferta).delete()
+    
+    # Eliminar el registro del modelo Seleccionados
+    seleccionado.delete()
+    
+    # Actualizar el estado del postulante
+    postulante.status = 'agente libre'
+    postulante.save()
+
+    messages.success(request, 'El postulante ha sido rechazado y sus datos eliminados.')
+    return HttpResponseRedirect(reverse('ver_seleccionados', args=[oferta.id]))
 
 
 
@@ -220,8 +242,31 @@ def seleccionar_postulantes(request, aplicacion_id):
         messages.success(request, 'Postulante seleccionado exitosamente.')
     return HttpResponseRedirect(reverse('ver_postulantes', args=[aplicacion.oferta.id]))
 
+#vista para ver una lista de todos los postulantes seleccionados 
 @role_required('empresa')
 def ver_seleccionados(request, oferta_id):
     oferta = get_object_or_404(Oferta, id=oferta_id, empresa=request.user)
     seleccionados = Seleccionados.objects.filter(oferta=oferta)
     return render(request, 'empresa/ver_seleccionados.html', {'oferta': oferta, 'seleccionados': seleccionados})
+
+
+#vista para elminar oferta, rechazar a los postulantes apolicados y contratar a los postulantes seleccionados
+def eliminar_oferta(request, oferta_id):
+    oferta = get_object_or_404(Oferta, id=oferta_id, empresa=request.user)
+
+    # Actualizar el estado de los postulantes
+    aplicaciones = Aplicacion.objects.filter(oferta=oferta)
+    for aplicacion in aplicaciones:
+        postulante = aplicacion.postulante
+        if postulante.status == 'aplicado':
+            postulante.status = 'agente libre'
+        elif postulante.status == 'seleccionado':
+            postulante.status = 'contratado'
+        postulante.save()
+
+    # Eliminar la oferta y las aplicaciones asociadas
+    aplicaciones.delete()
+    oferta.delete()
+
+    messages.success(request, 'La oferta ha sido eliminada, los postulantes que no fueron seleccionados, ahora son agentes libres y los que fueron seleccionados ahora están contratados.')
+    return redirect('mis_ofertas')
