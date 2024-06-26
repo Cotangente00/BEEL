@@ -1,0 +1,88 @@
+
+/* Estilo general para la sección de postulantes seleccionados */
+.container {
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: container-aparecer 1s ease-in-out;
+} 
+  
+@keyframes container-aparecer{
+    from {
+      opacity: 0; /* Start hidden */
+      transform: translateY(50px); /* Start above the viewport */
+    }
+    to {
+      opacity: 1; /* End visible */
+      transform: translateY(0); /* End in original position */
+    }
+}
+  
+  /* Estilo para el título */
+  h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    animation: h2-bounce 1s ease-in-out forwards;
+}
+
+@keyframes h2-bounce {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+  
+  /* Estilo para la lista de postulantes */
+  .postulantes-seleccionados ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+
+  
+  /* Estilo para los nombres del postulante */
+  h3 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #2196F3; /* Color azul para destacar los nombres */
+    margin-top: 0;
+  }
+  
+  /* Estilo para la información del postulante (tipo y número de documento, contacto) */
+  .postulantes-seleccionados p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #666;
+  }
+  
+  /* Estilo para las etiquetas de información (tipo de documento, número de documento, contacto) */
+  .postulantes-seleccionados .etiqueta {
+    display: inline-block;
+    width: 150px; /* Ancho fijo para las etiquetas */
+    font-weight: bold;
+    color: #999;
+    margin-right: 10px;
+  }
+  
+  /* Estilo para los valores de la información */
+  .postulantes-seleccionados .valor {
+    display: inline-block;
+  }
+  
+  /* Estilo para la línea divisoria entre elementos de la lista */
+  .postulantes-seleccionados hr {
+    margin-top: 20px;
+    border: 1px solid #eee;
+  }
+  
+  
+
+  

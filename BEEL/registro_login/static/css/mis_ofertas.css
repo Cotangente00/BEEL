@@ -88,6 +88,7 @@ main {
     display: block;
 }
 
+
 .offer-card a:hover{
     font-weight: bold;
     text-decoration: none;
@@ -111,3 +112,10 @@ main {
         transform: translateY(0);
     }
 }
+
+
+/* Estilo para el formulario */
+.offer-card button{
+background-color: yellow;
+  }
+  
