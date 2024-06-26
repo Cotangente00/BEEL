@@ -116,6 +116,14 @@ main {
 
 /* Estilo para el formulario */
 .offer-card button{
-background-color: yellow;
-  }
+    background-color: transparent; /* Example green color */
+    color: #888787;
+    border: none;
+}
+
+.offer-card button:hover{
+    background-color: transparent; /* Example green color */
+    color: #eeeeee;
+    border: none;
+}
   
