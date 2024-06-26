@@ -67,8 +67,8 @@ cas4limpi42024
 
 '''
 usuario de prueba:
-1398473984
-malufe2207
+1028880846
+malufe22072005
 '''
 
 '''
@@ -111,6 +111,10 @@ def aplicar_oferta(request, oferta_id):
     if request.method == 'POST':
         form = AplicacionForm(request.POST)
         if form.is_valid():
+            aplicacion_existente = Aplicacion.objects.filter(correo_electronico=form.cleaned_data['correo_electronico'], estado='pendiente').exists()
+            if aplicacion_existente:
+                messages.error(request, 'Ya tienes una aplicación pendiente. Debes esperar a ser rechazado o contratado antes de aplicar a otra oferta.')
+                return redirect('lista_ofertas')
             aplicacion = form.save(commit=False)
             aplicacion.oferta = oferta
             aplicacion.save()
@@ -138,9 +142,9 @@ def ver_postulantes(request, oferta_id):
 @role_required('empresa')
 def rechazar_postulante(request, aplicacion_id):
     aplicacion = get_object_or_404(Aplicacion, id=aplicacion_id, oferta__empresa=request.user)
-    oferta_id = aplicacion.oferta.id
-    aplicacion.delete()
-    return redirect('ver_postulantes', oferta_id=oferta_id)
+    aplicacion.estado = 'rechazado'
+    aplicacion.save()
+    return redirect('ver_postulantes', oferta_id=aplicacion.oferta.id)
 
 
 
