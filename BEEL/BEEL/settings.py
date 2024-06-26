@@ -138,7 +138,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-LOGIN_URL = 'login_view'  # URL para la vista de login
+LOGIN_URL = 'iniciar_sesion'  # URL para la vista de login
 LOGIN_REDIRECT_URL = [
     'home_empresa',
     'home_postulante',

@@ -42,7 +42,7 @@
                   <form method="post" action="{% url 'rechazar_postulante' aplicacion.id %}">
                     {% csrf_token %}
                     <a href="" class="boton-rechazar"><button type="submit">Rechazar</button></a>
-                </form>
+                  </form>
                 </div>
               </li>
             {% endfor %}
