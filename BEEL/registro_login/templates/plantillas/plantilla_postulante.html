@@ -27,12 +27,9 @@
         <nav>
             <ul class="nav-links">
                 <li>
-                    <a><form method="post" action="{% url 'logout' %}">
-                        {% csrf_token %}
-                        <button type="submit" class="opciones-cerrar-sesion">Salir</button>
-                    </form></a>
+                <a href="{% url 'home_postulante' %}" class="inicio">Inicio</button></a>
                 </li>
-                <li><a href="{% url 'aboutus' %}">Sobre nosotros</a></li>
+                <li><a href="{% url 'aboutus' %}" class="sobre-nosotros">Sobre nosotros</a></li>
             </ul>
         </nav>
     </header>

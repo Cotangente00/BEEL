@@ -10,7 +10,7 @@
 .container {
     width: 80%;
     max-width: 800px;
-    margin: 20px auto;
+    margin: 70px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -35,10 +35,16 @@
     }
 }
   h1 {
-    color: green;
+    color: #4CAF50;
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
+    animation: h2-bounce 1s ease-in-out forwards;
+  }
+  
+  @keyframes h2-bounce {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
   }
   
   .campo {
@@ -76,22 +82,22 @@
   /* Estilos del botón */
   button {
     padding: 10px 20px;
-    background-color: rgb(0, 182, 0);
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 40px;
+    transition: background-color 0.3s ease;
   }
 
   button:hover {
     padding: 10px 20px;
-    background-color: rgb(0, 139, 0);
+    background-color: #307033;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
   }
   /* Enlace para cambiar contraseña */
   a {

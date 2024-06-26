@@ -26,15 +26,60 @@
    text-decoration: none;
 }
 
-h3{
-   font-size: 40px;
-   font-weight: 200;
-   margin-bottom: 10px;
+h2 {
+   font-size: 50px;
+   font-weight: bold;
+   margin-bottom: 50px;
+   color: #4CAF50;
+   animation: h2-aparecer 1s ease-in-out; /* Add animation */
 }
+
+
+  
+  @keyframes h2-aparecer{
+   from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 
 p{
    font-size: 18px;
    font-weight: 300;
    margin-bottom: 20px;
-   letter-spacing: 4px;
+   letter-spacing: 3px;
+   text-align: justify;
 }
+
+.container{
+   background-color: #d6fffb;
+   width: 100%; /* Ancho como porcentaje del contenedor padre */
+   margin: 20px auto; /* Centrar el cuadro horizontalmente */
+   padding: 20px;
+   border: 1px solid #ccc;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   border-radius: 5px;
+ }
+
+   /* Animation for Title */
+   .container {
+      animation: container-aparecer 2s ease-in-out forwards;
+    }
+  
+    @keyframes container-aparecer {
+      0% {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        50% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        100% {
+          /* Add your animation styles here */
+        }
+      }

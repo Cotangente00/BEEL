@@ -17,14 +17,22 @@ body {
     margin-bottom: 30px;
     font-size: 35px;
     font-weight: bold;
-    color: orangered;
+    color: #4CAF50;
+    animation: titulo-bounce 1s ease-in-out forwards;
+  } 
+
+  @keyframes titulo-bounce {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
   }
+  
   
   /* Form Styles */
   .formulario-aplicacion {
     width: 100%;
     padding: 20px;
     background-color: #fff;
+    border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }

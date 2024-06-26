@@ -60,10 +60,12 @@ main {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    border: 1px solid #ccc;
 }
 
 .offer-card {
     background-color: #fff;
+    border: 1px solid #ccc;
     width: 50%;
     margin: 10px 0;
     padding: 20px;

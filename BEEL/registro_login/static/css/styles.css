@@ -34,48 +34,48 @@ body{
     margin-bottom: 2px;
 }
 
-.header .logo img:hover{
-    transform: scale(1.2);
+/* Estilos generales del header */
 
-}
-.header .nav-links{
-    list-style: none;
+  /* Estilos para la navegación */
+  nav {
+    display: flex; /* Organiza elementos de la navegación en línea */
+    margin-top: 0%;
+  }
+  
+  .nav-links {
+    display: flex; /* Organiza elementos de la lista en línea */
+    list-style: none; /* Elimina puntos de la lista */
+    padding: 0; /* Elimina padding de la lista */
+    margin-top: 0px; /* Elimina margen de la lista */
+  }
+  
+  .nav-links li {
+    margin-left: 20px; /* Margen izquierdo entre elementos de la lista */
+  }
+  
+  .nav-links a {
+    text-decoration: none; /* Elimina subrayado de los enlaces */
+    color: #ffffff; /* Color del texto de los enlaces */
+    padding-top: 10px;
+  }
+  
+  /* Estilos para el botón de cerrar sesión (opcional) */
+  .opciones-cerrar-sesion {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Elimina borde */
+    color: inherit; /* Color heredado del elemento padre */
+    cursor: pointer; /* Cursor en forma de mano al pasar el mouse */
+  }
+  
 
-}
-
-.header .nav-links li{
-    display: inline-block;
-    padding: 0 20px;
-}
-
-.header .nav-links li:hover{
-    transform: scale(1.1);
-    color: white;
-}
-
-.header .nav-links a{
+.header .nav-links a button{
     font-size: 700;
     color: white;
     text-decoration: none;
     margin-top: 1px;
 }
 
-.header .nav-links li a:hover{
-    color:#9cd2d3
-}
 
-
-
-.header .btn button{
-    font-weight: 700;
-    color: #000000;
-    padding: 9px 25px;
-    background: #eceff1;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
 
 .header .btn button:hover{
     background-color:#eceff1;

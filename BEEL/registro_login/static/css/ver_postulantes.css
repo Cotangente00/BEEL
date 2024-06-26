@@ -24,7 +24,7 @@ body {
   padding-top: 0px;
   padding-bottom: 35px;
   font-size: 1.8rem;
-  color: green;
+  color: #4CAF50;
 }
 
 .titulo-postulantes{
@@ -111,7 +111,7 @@ body {
     border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .boton-rechazar button:hover {

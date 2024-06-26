@@ -1,4 +1,4 @@
-{% extends "plantilla2.html" %}
+{% extends "plantillas/plantilla_empresa.html" %}
 {% load static %}
 {% block content %}
 
@@ -24,7 +24,6 @@
     <body>
         <div class="container mt-5">
           <h1 class="titulo-postulantes">Postulados en - {{ oferta.titulo_cargo }}</h1>
-      
           <ul class="lista-aplicantes">
             {% for aplicacion in aplicaciones %}
               <li class="aplicacion animated">
