@@ -32,9 +32,16 @@
                 <li><a href="{% url 'aboutus' %}" class="sobre-nosotros">Sobre nosotros</a></li>
             </ul>
         </nav>
+        
     </header>
     
-    
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
 
     <!--Contenido cambiante-->

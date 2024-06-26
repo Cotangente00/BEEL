@@ -9,9 +9,17 @@ class CustomUser(AbstractUser):
         ('postulante', 'Postulante'),
     )
     
+    STATUS_CHOICES = (
+        ('agente libre', 'Agente Libre'),
+        ('aplicado', 'Aplicado'),
+        ('contratado', 'Contratado'),
+        ('seleccionado', 'Seleccionado')
+    )
+    
     role = models.CharField(max_length=10, choices=ROLES)
     nit = models.CharField(max_length=20, blank=True, null=True)
     cedula = models.CharField(max_length=20, blank=True, null=True)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='agente libre')
 
     def save(self, *args, **kwargs):
         if self.role == 'empresa':
@@ -19,6 +27,11 @@ class CustomUser(AbstractUser):
         elif self.role == 'postulante':
             self.nit = None
         super(CustomUser, self).save(*args, **kwargs)
+    
+    def save2(self, *args, **kwargs):
+        if self.role == 'postulante' and not self.status:
+            self.status = 'agente libre'
+        super().save(*args, **kwargs)
 
 
 class Oferta(models.Model):
@@ -51,6 +64,7 @@ class TipoDiscapacidad(models.Model):
     
 
 class Aplicacion(models.Model):
+    postulante = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE, related_name='aplicaciones')
     nombres = models.CharField(max_length=255)
     apellidos = models.CharField(max_length=255)
@@ -68,3 +82,15 @@ class Aplicacion(models.Model):
     
 
 
+class Seleccionados(models.Model):
+    postulante = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    oferta = models.ForeignKey(Oferta, on_delete=models.CASCADE)
+    nombres = models.CharField(max_length=100)
+    apellidos = models.CharField(max_length=100)
+    tipo_documento = models.CharField(max_length=50)
+    numero_documento = models.CharField(max_length=50)
+    contacto = models.CharField(max_length=100)
+    fecha_seleccion = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.nombres} {self.apellidos} - {self.oferta.titulo_cargo}'

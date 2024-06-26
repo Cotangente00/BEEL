@@ -16,8 +16,9 @@ class RegistroForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super(RegistroForm, self).__init__(*args, **kwargs)
-        self.fields['num1'].initial = random.randint(1, 10)
-        self.fields['num2'].initial = random.randint(1, 10)
+        if not self.is_bound:
+            self.fields['num1'].initial = random.randint(1, 10)
+            self.fields['num2'].initial = random.randint(1, 10)
         self.fields['resultado'].label = f'¿Cuánto es {self.fields["num1"].initial} + {self.fields["num2"].initial}?'
 
     def clean_resultado(self):
@@ -92,7 +93,7 @@ class AplicacionForm(forms.ModelForm):
 
 #clases para que los usuarios puedan editar sus datos 
 class EditProfileForm(UserChangeForm):
-    password = None  # ocultar el campo de contraseña
+    password = None  # ocultar el contenido de la contraseña
 
     class Meta:
         model = CustomUser

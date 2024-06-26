@@ -14,12 +14,19 @@
     <link rel="stylesheet" href="{% static 'css/mis_ofertas.css' %}">
     <body>
         <h1 class="titulo-ofertas text-center">Mis Ofertas</h1>
+        
         <ul class="offer-list">
             {% for oferta in ofertas %}
                 <li class="offer-card">
                     <a href="{% url 'ver_postulantes' oferta.id %}">{{ oferta.titulo_cargo }}</a>
+                    <form method="get" action="{% url 'ver_seleccionados' oferta.id %}">
+                        <button type="submit">Ver Seleccionados</button>
+                    </form>
+                </li>
+                <li>
                 </li>
             {% endfor %}
+            
         </ul>
     </body>
 {% endblock %}
